@@ -1,7 +1,7 @@
 export const prerender = true;
 
 import { processAllWithContent } from '$lib/markdown';
-import { SITE_TITLE, SITE_URL } from '$lib/siteConfig.js';
+import { SITE_TITLE, SITE_URL } from '$lib/siteConfig';
 import RSS from 'rss';
 
 // @ts-expect-error
@@ -29,6 +29,8 @@ export async function GET() {
 			description: post.content.replaceAll('/blog', 'https://ratamero.com/blog')
 		});
 	});
+
+	console.log(feed.xml({ indent: true }));
 
 	return new Response(feed.xml({ indent: true }), {
 		headers: {

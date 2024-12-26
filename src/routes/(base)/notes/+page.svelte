@@ -85,7 +85,7 @@
 			{#each list as item}
 				<li class="mb-8 text-lg">
 					<IndexCard
-						href={`/blog/notes/${item.slug}`}
+						href={`/notes/${item.slug}`}
 						title={item.title}
 						stringData={dayjs(item.date).toISOString().slice(0, 10)}
 					>
