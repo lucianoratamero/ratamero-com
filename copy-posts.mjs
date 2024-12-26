@@ -33,7 +33,7 @@ async function copyMarkdownFiles(sourceDir, destBaseDir) {
 
 		await fs.mkdir(newDir, { recursive: true });
 		await fs.copyFile(sourcePath, destPath);
-		console.log(`Copied file ${file} to ${destPath}`);
+		// console.log(`Copied file ${file} to ${destPath}`);
 	}
 }
 
@@ -57,7 +57,7 @@ async function cleanDirectory(dir) {
 			}
 		}
 
-		console.log(`Cleaned directory: ${dir}`);
+		// console.log(`Cleaned directory: ${dir}`);
 	} catch (error) {
 		if (error.code !== 'ENOENT') {
 			console.error(`Error cleaning directory ${dir}:`, error);
@@ -103,7 +103,7 @@ async function processMarkdownFiles(directory) {
 			});
 
 			await fs.writeFile(fullPath, content, 'utf-8');
-			console.log(`Processed markdown file: ${fullPath}`);
+			// console.log(`Processed markdown file: ${fullPath}`);
 		}
 	}
 }
@@ -134,16 +134,16 @@ async function copyPosts() {
 			if (dir === 'notes') {
 				// For 'notes' directory, copy markdown files to NOTES_DIR
 				await copyMarkdownFiles(sourceDir, NOTES_DIR);
-				console.log(`Processed notes directory to ${NOTES_DIR}`);
+				// console.log(`Processed notes directory to ${NOTES_DIR}`);
 			} else if (dir === 'assets') {
 				// For 'assets' directory, copy to static/assets with force overwrite
 				await fs.cp(sourceDir, STATIC_ASSETS_DIR, { recursive: true, force: true });
-				console.log(`Copied assets to ${STATIC_ASSETS_DIR}`);
+				// console.log(`Copied assets to ${STATIC_ASSETS_DIR}`);
 			} else {
 				// For other directories, copy everything as before
 				const destDir = path.join(DEST_DIR, dir);
 				await fs.cp(sourceDir, destDir, { recursive: true });
-				console.log(`Copied directory ${dir} to ${destDir}`);
+				// console.log(`Copied directory ${dir} to ${destDir}`);
 			}
 		}
 
@@ -151,7 +151,7 @@ async function copyPosts() {
 		await processMarkdownFiles(DEST_DIR);
 		await processMarkdownFiles(NOTES_DIR);
 
-		console.log('All posts and directories copied and processed successfully!');
+		// console.log('All posts and directories copied and processed successfully!');
 	} catch (error) {
 		console.error('Error copying posts:', error);
 	}
