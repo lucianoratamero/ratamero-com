@@ -1,3 +1,4 @@
+import chokidar from 'chokidar';
 import { promises as fs } from 'fs';
 import { homedir } from 'os';
 import path from 'path';
@@ -157,4 +158,6 @@ async function copyPosts() {
 	}
 }
 
-copyPosts();
+chokidar.watch(SOURCE_DIR).on('all', (event, path) => {
+	copyPosts();
+});
