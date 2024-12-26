@@ -1,21 +1,20 @@
-// @ts-disable
 /* eslint-disable */
-import fs from 'fs';
-import { readSync } from 'to-vfile';
-import { unified } from 'unified';
-import parse from 'remark-parse';
-import gfm from 'remark-gfm';
-import remark2rehype from 'remark-rehype';
+import highlightSvelte from '$lib/highlightSvelte';
+import dayjs from 'dayjs';
+import yaml from 'js-yaml';
+import _ from 'lodash';
+import fs from 'node:fs';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import highlight from 'rehype-highlight';
+import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify';
 import frontmatter from 'remark-frontmatter';
-import highlight from 'rehype-highlight';
-import yaml from 'js-yaml';
-import dayjs from 'dayjs';
-import _ from 'lodash';
-import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import gfm from 'remark-gfm';
+import parse from 'remark-parse';
+import remark2rehype from 'remark-rehype';
 import remarkToc from 'remark-toc';
-import highlightSvelte from '$lib/highlightSvelte.js';
+import { readSync } from 'to-vfile';
+import { unified } from 'unified';
 
 let parser = unified().use(parse).use(gfm).use(frontmatter, ['yaml']);
 
@@ -53,12 +52,19 @@ export function process(filename) {
 	return { metadata, content };
 }
 
-export async function processAll(suffix = '') {
-	const files = fs.readdirSync(`src/posts/${suffix}`);
+export async function processAll(processedPath) {
+	const files = fs
+		.readdirSync(processedPath || `src/routes/(base)/blog/`)
+		.filter((file) => !file.endsWith('.svelte') && !file.startsWith('+'));
+
 	const postsMetadata = files
 		.map((file) => {
-			if (fs.lstatSync(`src/posts/${suffix}${file}`).isFile()) {
-				return process(`src/posts/${suffix}${file}`);
+			try {
+				if (fs.lstatSync(`${processedPath || 'src/routes/(base)/blog/'}${file}/+page.md`).isFile()) {
+					return process(`${processedPath || 'src/routes/(base)/blog/'}${file}/+page.md`);
+				}
+			} catch (e) {
+				return;
 			}
 		})
 		.filter((post) => Boolean(post))
@@ -69,11 +75,17 @@ export async function processAll(suffix = '') {
 }
 
 export async function processAllWithContent() {
-	const files = fs.readdirSync('src/posts/');
+	const files = fs
+		.readdirSync('src/routes/(base)/blog/')
+		.filter((file) => !file.endsWith('.svelte') && !file.startsWith('+'));
 	const posts = files
 		.map((file) => {
-			if (fs.lstatSync(`src/posts/${file}`).isFile()) {
-				return process(`src/posts/${file}`);
+			try {
+				if (fs.lstatSync(`src/routes/(base)/blog/${file}/+page.md`).isFile()) {
+					return process(`src/routes/(base)/blog/${file}/+page.md`);
+				}
+			} catch (e) {
+				return;
 			}
 		})
 		.filter((post) => Boolean(post));

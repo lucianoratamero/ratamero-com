@@ -7,6 +7,24 @@
 	import Nav from '$lib/components/Nav.svelte';
 	import { Circle3 } from 'svelte-loading-spinners';
 	import { fade } from 'svelte/transition';
+
+	import highlightSvelte from '$lib/highlightSvelte';
+	import hljs from 'highlight.js/lib/core';
+	import bash from 'highlight.js/lib/languages/bash';
+	import elixir from 'highlight.js/lib/languages/elixir';
+	import javascript from 'highlight.js/lib/languages/javascript';
+	import json from 'highlight.js/lib/languages/json';
+	import python from 'highlight.js/lib/languages/python';
+	import typescript from 'highlight.js/lib/languages/typescript';
+
+	hljs.registerLanguage('javascript', javascript);
+	hljs.registerLanguage('typescript', typescript);
+	hljs.registerLanguage('json', json);
+	hljs.registerLanguage('bash', bash);
+	hljs.registerLanguage('svelte', highlightSvelte);
+	hljs.registerLanguage('python', python);
+	hljs.registerLanguage('elixir', elixir);
+
 	interface Props {
 		children?: import('svelte').Snippet;
 	}

@@ -1,22 +1,30 @@
-export default function highlightSvelte(e) {
+export default function hljsDefineSvelte(hljs) {
 	return {
 		subLanguage: 'xml',
 		contains: [
-			e.COMMENT('\x3c!--', '--\x3e', { relevance: 10 }),
+			hljs.COMMENT('<!--', '-->', {
+				relevance: 10
+			}),
 			{
 				begin: /^(\s*)(<script(\s*context="module")?>)/gm,
 				end: /^(\s*)(<\/script>)/gm,
 				subLanguage: 'javascript',
-				excludeBegin: !0,
-				excludeEnd: !0,
-				contains: [{ begin: /^(\s*)(\$:)/gm, end: /(\s*)/gm, className: 'keyword' }]
+				excludeBegin: true,
+				excludeEnd: true,
+				contains: [
+					{
+						begin: /^(\s*)(\$:)/gm,
+						end: /(\s*)/gm,
+						className: 'keyword'
+					}
+				]
 			},
 			{
 				begin: /^(\s*)(<style.*>)/gm,
 				end: /^(\s*)(<\/style>)/gm,
 				subLanguage: 'css',
-				excludeBegin: !0,
-				excludeEnd: !0
+				excludeBegin: true,
+				excludeEnd: true
 			},
 			{
 				begin: /\{/gm,
@@ -24,12 +32,12 @@ export default function highlightSvelte(e) {
 				subLanguage: 'javascript',
 				contains: [
 					{
-						begin: /[\{]/,
-						end: /[\}]/,
-						skip: !0
+						begin: /[{]/,
+						end: /[}]/,
+						skip: true
 					},
 					{
-						begin: /([#:\/@])(if|else|each|await|then|catch|debug|html)/gm,
+						begin: /([#:/@])(if|else|each|await|then|catch|debug|html)/gm,
 						className: 'keyword',
 						relevance: 10
 					}
