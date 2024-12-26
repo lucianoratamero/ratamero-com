@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { REPO_URL } from '$lib/siteConfig.js';
+	import { REPO_URL } from '$lib/siteConfig';
 	import Button from './Button.svelte';
 	import MobileMenu from './MobileMenu.svelte';
 	import NavLink from './NavLink.svelte';

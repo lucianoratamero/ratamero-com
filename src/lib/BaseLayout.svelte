@@ -1,10 +1,10 @@
 <script module>
-	import { MY_YOUTUBE, REPO_URL, SITE_TITLE } from '$lib/siteConfig.js';
+	import { MY_YOUTUBE, REPO_URL, SITE_TITLE } from '$lib/siteConfig';
 </script>
 
 <script lang="ts">
+	import { navigating } from '$app/state';
 	import Nav from '$lib/components/Nav.svelte';
-	import { navigationIsDelayed } from '$lib/stores';
 	import { Circle3 } from 'svelte-loading-spinners';
 	import { fade } from 'svelte/transition';
 	interface Props {
@@ -14,6 +14,22 @@
 	let { children }: Props = $props();
 
 	const children_render = $derived(children);
+
+	let timer = null;
+	let navigationIsDelayed = $state(false);
+
+	$effect(() => {
+		if (timer) {
+			clearTimeout(timer);
+		}
+		if (navigating.to) {
+			timer = setTimeout(() => {
+				navigationIsDelayed = true;
+			}, 500);
+		}
+		navigationIsDelayed = false;
+		hljs.highlightAll();
+	});
 </script>
 
 <svelte:head>
@@ -25,7 +41,7 @@
 	/>
 </svelte:head>
 
-{#if $navigationIsDelayed}
+{#if navigationIsDelayed}
 	<div class="fixed w-full h-full z-10" in:fade={{ duration: 150 }}>
 		<div class="absolute w-full h-full bg-white dark:bg-cyan-900 opacity-50 z-10"></div>
 		<div class="absolute w-full h-full flex justify-center items-center z-20">
