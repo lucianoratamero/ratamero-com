@@ -110,6 +110,11 @@
 		margin-top: 1rem;
 		font-style: italic;
 	}
+
+	figcaption {
+		font-size: 0.875rem;
+		text-align: center;
+	}
 }
 
 /* bg-cyan-200 dark:hover:bg-cyan-800 */
