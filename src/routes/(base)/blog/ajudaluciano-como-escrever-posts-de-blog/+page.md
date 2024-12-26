@@ -21,7 +21,9 @@ Quando eu converso com a galera da [Labcodes](https://labcodes.com.br/), eu noto
 
 A questão é que jornalistas fazem isso **o tempo todo**; _até quando não devem_.
 
-<a href="/assets/caetano.jpg" target="_blank"><img src="/assets/caetano.jpg" alt="A matéria jornalística que chocou o mundo" /></a>[A matéria jornalística que chocou o mundo](https://www.terra.com.br/diversao/gente/caetano-veloso-passeia-pelo-leblon-e-estaciona-o-carro,e0d3399ae915a310VgnCLD200000bbcceb0aRCRD.html)
+<a href="/assets/caetano.jpg" target="_blank"><img src="/assets/caetano.jpg" alt="A matéria jornalística que chocou o mundo" /></a>
+
+[A matéria jornalística que chocou o mundo](https://www.terra.com.br/diversao/gente/caetano-veloso-passeia-pelo-leblon-e-estaciona-o-carro,e0d3399ae915a310VgnCLD200000bbcceb0aRCRD.html)
 
 E se você tá se perguntando, **sim**, nós temos uma **receitinha** de como fazer essas _chocantes_ matérias.
 
