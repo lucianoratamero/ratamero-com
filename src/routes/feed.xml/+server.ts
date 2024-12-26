@@ -30,8 +30,6 @@ export async function GET() {
 		});
 	});
 
-	console.log(feed.xml({ indent: true }));
-
 	return new Response(feed.xml({ indent: true }), {
 		headers: {
 			'Cache-Control': `max-age=0, s-maxage=${600}`, // 10 minutes
