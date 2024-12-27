@@ -1,8 +1,14 @@
+
+---
+layout: plain
+---
+
+
 <svelte:head>
 	<title>About - luciano@ratamero.com</title>
 </svelte:head>
 
-<script>
+<script lang="ts">
 	import eu3x from '$lib/img/eu-3x.jpg';
 
 	const birthday = new Date('1989-06-15');

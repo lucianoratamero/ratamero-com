@@ -13,6 +13,7 @@ import { sveltePreprocess } from 'svelte-preprocess';
 const mdsvexConfig = {
 	extensions: ['.svelte.md', '.md', '.svx'],
 	layout: {
+		plain: './src/lib/PlainLayout.svelte',
 		_: './src/lib/BlogLayout.svelte' // default mdsvex layout
 	},
 	remarkPlugins: [
