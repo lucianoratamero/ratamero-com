@@ -3,8 +3,17 @@
 	import Comments from '$lib/components/Comments.svelte';
 	import { DEFAULT_OG_IMAGE, MY_TWITTER_HANDLE } from '$lib/siteConfig';
 	import dayjs from 'dayjs';
+	import type { Snippet } from 'svelte';
 
-	let { children, title, description, image, date } = $props();
+	interface Props {
+		children?: Snippet;
+		title: string;
+		description: string;
+		image?: string;
+		date: string;
+	}
+
+	let { children, title, description, image, date }: Props = $props();
 </script>
 
 <svelte:head>

@@ -1,8 +1,9 @@
 <script lang="ts">
 	import IndexCard from '$lib/components/IndexCard.svelte';
 	import dayjs from 'dayjs';
+	import type { PageData } from './$types';
 
-	let { data } = $props();
+	let { data }: { data: PageData } = $props();
 	let { items } = data;
 
 	let inputEl: HTMLInputElement = $state();

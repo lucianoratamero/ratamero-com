@@ -1,3 +1,4 @@
+import type { ContentItem } from '$lib/types.js';
 import { error } from '@sveltejs/kit';
 
 export const prerender = true; // index page is most visited, lets prerender
@@ -8,8 +9,7 @@ export async function load({ fetch }) {
 		throw error(res.status, await res.text());
 	}
 
-	/** @type {import('$lib/types').ContentItem[]} */
-	const items = await res.json();
+	const items: ContentItem[] = await res.json();
 	return {
 		items
 	};

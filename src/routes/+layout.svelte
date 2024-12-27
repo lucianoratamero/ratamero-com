@@ -1,11 +1,12 @@
 <script lang="ts">
-	import '../tailwind.css';
 	import '$lib/hljs-github-dark.css';
+	import type { Snippet } from 'svelte';
+	import '../tailwind.css';
 	interface Props {
-		children?: import('svelte').Snippet;
+		children?: Snippet;
 	}
 
 	let { children }: Props = $props();
 </script>
 
-{@render children?.()}
+{@render children()}

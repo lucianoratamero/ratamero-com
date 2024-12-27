@@ -16,6 +16,7 @@
 	import json from 'highlight.js/lib/languages/json';
 	import python from 'highlight.js/lib/languages/python';
 	import typescript from 'highlight.js/lib/languages/typescript';
+	import type { Snippet } from 'svelte';
 
 	hljs.registerLanguage('javascript', javascript);
 	hljs.registerLanguage('typescript', typescript);
@@ -26,12 +27,10 @@
 	hljs.registerLanguage('elixir', elixir);
 
 	interface Props {
-		children?: import('svelte').Snippet;
+		children?: Snippet;
 	}
 
 	let { children }: Props = $props();
-
-	const children_render = $derived(children);
 
 	let timer = null;
 	let navigationIsDelayed = $state(false);
@@ -72,7 +71,7 @@
 	<Nav />
 </div>
 <main class="flex flex-col justify-center px-4 sm:px-8">
-	{@render children_render?.()}
+	{@render children()}
 </main>
 
 <footer class="mx-auto mb-8 flex w-full max-w-3xl flex-col items-start justify-center">

@@ -19,6 +19,13 @@ export type ContentItem = {
 	ghMetadata: GHMetadata;
 };
 
+export type ContentFromFile = {
+	metadata: {
+		[key: string]: string;
+	};
+	content: string;
+};
+
 export type GHMetadata = {
 	issueUrl: string;
 	commentsUrl: string;

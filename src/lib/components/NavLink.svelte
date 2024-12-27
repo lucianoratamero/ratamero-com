@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	type Props = {
-		href: string;
-		children: () => any;
-	};
+	import type { Snippet } from 'svelte';
 
-	let { ...props }: Props = $props();
+	let props: {
+		href: string;
+		children: Snippet
+	} = $props();
 	let active_classes = $derived(
 		page.url.pathname === props.href ||
 			(props.href !== '/' && page.url.pathname.includes(props.href))
@@ -22,6 +22,3 @@
 >
 	<span class="capsize">{@render children_render()} </span>
 </a>
-
-<style>
-</style>

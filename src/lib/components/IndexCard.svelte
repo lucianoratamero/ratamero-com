@@ -1,21 +1,14 @@
-<script>
+<script lang="ts">
+	import type { Snippet } from "svelte";
 
-	
-	/**
-	 * @typedef {Object} Props
-	 * @property {string} [href]
-	 * @property {string} [title]
-	 * @property {string} [stringData]
-	 * @property {import('svelte').Snippet} [children]
-	 */
+	type Props = {
+		href?: string;
+		title?: string;
+		stringData?: string;
+		children?: Snippet;
+	};
 
-	/** @type {Props} */
-	let {
-		href = '#',
-		title = 'Untitled post',
-		stringData = 'no date',
-		children
-	} = $props();
+	let { href = '#', title = 'Untitled post', stringData = 'no date', children }: Props = $props();
 
 	const children_render = $derived(children);
 </script>

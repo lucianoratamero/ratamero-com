@@ -1,8 +1,10 @@
 <script lang="ts">
 	import BaseLayout from '$lib/BaseLayout.svelte';
-	interface Props {
-		children?: import('svelte').Snippet;
-	}
+	import type { Snippet } from 'svelte';
+
+	type Props = {
+		children?: Snippet;
+	};
 
 	let { children }: Props = $props();
 </script>

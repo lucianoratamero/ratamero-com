@@ -1,3 +1,4 @@
+import type { ContentItem } from '$lib/types.js';
 import { error } from '@sveltejs/kit';
 
 export const prerender = true; // turned off so it refreshes quickly
@@ -8,8 +9,7 @@ export async function load({ fetch }) {
 		throw error(res.status, await res.text());
 	}
 
-	/** @type {import('$lib/types.js').ContentItem[]} */
-	const items = await res.json();
+	const items: ContentItem[] = await res.json();
 	return {
 		items
 	};

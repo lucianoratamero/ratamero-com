@@ -15,6 +15,7 @@ import remark2rehype from 'remark-rehype';
 import remarkToc from 'remark-toc';
 import { readSync } from 'to-vfile';
 import { unified } from 'unified';
+import type { ContentFromFile, ContentItem } from './types';
 
 let parser = unified().use(parse).use(gfm).use(frontmatter, ['yaml']);
 
@@ -52,15 +53,17 @@ export function process(filename) {
 	return { metadata, content };
 }
 
-export async function processAll(processedPath) {
+export async function processAll(processedPath = null): Promise<ContentItem[]> {
 	const files = fs
 		.readdirSync(processedPath || `src/routes/(base)/blog/`)
 		.filter((file) => !file.endsWith('.svelte') && !file.startsWith('+'));
 
-	const postsMetadata = files
+	const postsMetadata: ContentItem[] = files
 		.map((file) => {
 			try {
-				if (fs.lstatSync(`${processedPath || 'src/routes/(base)/blog/'}${file}/+page.md`).isFile()) {
+				if (
+					fs.lstatSync(`${processedPath || 'src/routes/(base)/blog/'}${file}/+page.md`).isFile()
+				) {
 					return process(`${processedPath || 'src/routes/(base)/blog/'}${file}/+page.md`);
 				}
 			} catch (e) {
@@ -71,14 +74,15 @@ export async function processAll(processedPath) {
 		.map((post) => {
 			return post && post.metadata;
 		});
+
 	return _.sortBy(postsMetadata, ['date']).reverse();
 }
 
-export async function processAllWithContent() {
+export async function processAllWithContent(): Promise<ContentFromFile[]> {
 	const files = fs
 		.readdirSync('src/routes/(base)/blog/')
 		.filter((file) => !file.endsWith('.svelte') && !file.startsWith('+'));
-	const posts = files
+	const posts: ContentFromFile[] = files
 		.map((file) => {
 			try {
 				if (fs.lstatSync(`src/routes/(base)/blog/${file}/+page.md`).isFile()) {

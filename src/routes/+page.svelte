@@ -8,9 +8,9 @@
 		SITE_TITLE,
 		SITE_URL
 	} from '$lib/siteConfig';
+	import type { PageData } from './$types';
 
-	let { data } = $props();
-	let { items } = data;
+	let props: { data: PageData } = $props();
 </script>
 
 <svelte:head>
@@ -63,7 +63,7 @@
 				Featured Posts
 			</h3>
 			<div class="flex flex-col gap-6 md:flex-row">
-				{#each items as item, i}
+				{#each props.data.items as item, i}
 					{#if i < 3}
 						<FeatureCard title={item.title} href={`/blog/${item.slug}`} stringData={item.date} />
 					{/if}
