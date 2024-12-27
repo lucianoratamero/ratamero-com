@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "run-p dev:only copy-posts:watch",
 		"dev:only": "bunx --bun vite dev",
-		"build": "bun run copy-posts && bunx --bun vite build",
+		"build": "bunx --bun vite build",
 		"preview": "bunx --bun vite preview",
 		"copy-posts": "bun run copy-posts.mjs",
 		"copy-posts:watch": "bun run copy-posts.mjs --watch",
