@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	content: [
 		'./src/**/*.svelte',
 		// may also want to include HTML files
@@ -73,5 +73,6 @@ module.exports = {
 		}
 	},
 	variants: {},
+	// eslint-disable-next-line @typescript-eslint/no-require-imports
 	plugins: [require('@tailwindcss/typography')]
 };
