@@ -158,6 +158,12 @@ async function copyPosts() {
 	}
 }
 
-chokidar.watch(SOURCE_DIR).on('all', (event, path) => {
+if (process.argv.includes('--watch')) {
+	chokidar.watch(SOURCE_DIR).on('all', (event, path) => {
+		console.log(`${event}: ${path}`);
+		copyPosts();
+	});
+} else {
 	copyPosts();
-});
+	console.log('Posts copied successfully!');
+}
