@@ -10,7 +10,9 @@
 			background-image: url('/sparkle.gif') !important;
 		}
 
-		article, nav, footer {
+		article,
+		nav,
+		footer {
 			background-color: #0c0c0c;
 			border: 2px solid #fff !important;
 			border-radius: 1rem;
@@ -29,7 +31,8 @@
 			}
 		}
 
-		h1, h2 {
+		h1,
+		h2 {
 			color: #ff0 !important;
 		}
 	}
@@ -66,11 +69,11 @@
 	}
 
 	:is(
-			::-webkit-calendar-picker-indicator,
-			::-webkit-clear-button,
-			::-webkit-inner-spin-button,
-			::-webkit-outer-spin-button
-		) {
+		::-webkit-calendar-picker-indicator,
+		::-webkit-clear-button,
+		::-webkit-inner-spin-button,
+		::-webkit-outer-spin-button
+	) {
 		color: var(--brand-accent);
 	}
 
@@ -143,6 +146,14 @@ h6 a {
 
 .prose h4::before {
 	content: '#### ';
+}
+
+.prose.flex p {
+	margin: 0;
+}
+
+.prose.flex {
+	@apply gap-4;
 }
 
 /* https://seek-oss.github.io/capsize/ */

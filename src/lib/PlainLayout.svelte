@@ -7,11 +7,10 @@
 	let { children }: Props = $props();
 </script>
 
-<article
-	class="container prose mx-auto mb-12 hover:prose-a:text-sky-700
-  prose-ul:list-disc
-  dark:prose-invert
-  "
->
-	{@render children()}
-</article>
+<main class="flex flex-col justify-center px-4 sm:px-8">
+	<article
+		class="prose hover:prose-a:text-sky-700 prose-ul:list-disc dark:prose-invert mx-auto flex max-w-3xl flex-col items-start justify-center border-zinc-200 px-4 pb-16 dark:border-zinc-700 sm:px-8"
+	>
+		{@render children()}
+	</article>
+</main>
