@@ -46,6 +46,12 @@
 		}
 		navigationIsDelayed = false;
 		hljs.highlightAll();
+
+		return () => {
+			if (timer) {
+				clearTimeout(timer);
+			}
+		};
 	});
 </script>
 
