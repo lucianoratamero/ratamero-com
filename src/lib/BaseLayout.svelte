@@ -86,9 +86,19 @@
 		<div class="flex flex-col space-y-4">
 			<a class="text-zinc-500 transition hover:text-zinc-300" href="/">Home</a>
 			<a class="text-zinc-500 transition hover:text-zinc-300" href="/about">About me</a>
-			<a class="text-zinc-500 transition hover:text-zinc-300" href="/feed.xml" rel="external">
-				RSS
-			</a>
+			<span class="text-zinc-500">
+				<a class="text-zinc-500 transition hover:text-zinc-300" href="/feed.xml" rel="external">
+					Blog RSS
+				</a>
+				-
+				<a
+					class="text-zinc-500 transition hover:text-zinc-300"
+					href="/notes/feed.xml"
+					rel="external"
+				>
+					Notes RSS
+				</a>
+			</span>
 		</div>
 		<div class="flex flex-col space-y-4">
 			<a
