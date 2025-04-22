@@ -12,7 +12,7 @@
 	<!--{:else}-->
 	<script
 		src="https://utteranc.es/client.js"
-		repo="lucianoratamero/swyxkit-blog"
+		repo="lucianoratamero/ratamerocom"
 		issue-term="title"
 		label="Comment"
 		theme="preferred-color-scheme"
