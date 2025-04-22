@@ -12,7 +12,7 @@
 	<!--{:else}-->
 	<script
 		src="https://utteranc.es/client.js"
-		repo="lucianoratamero/ratamerocom"
+		repo="lucianoratamero/ratamero-com"
 		issue-term="title"
 		label="Comment"
 		theme="preferred-color-scheme"
