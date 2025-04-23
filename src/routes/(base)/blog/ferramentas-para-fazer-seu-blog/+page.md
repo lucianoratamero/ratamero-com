@@ -13,7 +13,7 @@ ontem, durante a live de 8 anos da [Live de Python](https://www.youtube.com/@Dun
 
 olha, nada te impede de usar alguma plataforma proprietária, mas se você tá aqui, você provavelmente quer fugir delas e ter seus próprios dados. infelizmente, é um pouco difícil fazer isso sem saber um pouco de programação.
 
-então recomendo que você comece criando uma conta no [Github](https://github.com/) ou (ainda melhor) no [Codeberg](https://codeberg.org/). com a conta e um pouco de conhecimentos de git e markdown, você pode usar qualquer ferramenta de geração de sites estáticos [SSG](https://en.wikipedia.org/wiki/Static_site_generator) e publicar em um domínio usando [Github Pages](https://pages.github.com/) ou [Codeberg Pages](https://codeberg.page/). caso você já tenha um domínio e não queira usar o domínio gerado automaticamente, você também pode usá-lo de graça.
+então recomendo que você comece criando uma conta no [Github](https://github.com/) ou (ainda melhor) no [Codeberg](https://codeberg.org/). com a conta e um pouco de conhecimentos de git e markdown, você pode usar qualquer ferramenta de geração de sites estáticos ([SSG](https://en.wikipedia.org/wiki/Static_site_generator)) e publicar em um domínio usando [Github Pages](https://pages.github.com/) ou [Codeberg Pages](https://codeberg.page/). caso você já tenha um domínio e não queira usar o domínio gerado automaticamente, você também pode usá-lo de graça.
 
 daqui pra frente, vou assumir que vamos usar uma ferramenta de geração de sites estáticos e que estamos usando o Codeberg como plataforma. vamo lá!
 
@@ -37,7 +37,7 @@ como toda ferramenta simples, você vai sofrer um bocado a mais caso queira faze
 
 o [astro](https://astro.build/) é, na minha opinião, um ótimo meio termo. ele não é tão veloz quanto o marmite, mas também não precisa ser, a não ser que você tenha centenas ou milhares de posts. ele também oferece tudo que você precisa, e é bem mais flexível caso você queira algo mais que só um blog.
 
-pra usar o astro, você precisa ter o [NodeJS e o NPM instalados]. depois, é só entrar em [astro.new](https://astro.new), escolher um dos templates e rodar o comando que eles te dão. no meu caso, escolhi o template de blog, que foi gerado usando `npm create astro -- --template blog`.
+pra usar o astro, você precisa ter o [NodeJS e o NPM instalados](https://nodejs.org/en). depois, é só entrar em [astro.new](https://astro.new), escolher um dos templates e rodar o comando que eles te dão. no meu caso, escolhi o template de blog, que foi gerado usando `npm create astro -- --template blog`.
 
 ele tem um passo a passo bem tranquilo de seguir (em inglês) e também te dá opções de adicionar [frameworks de frontend](https://astro.new/latest/frameworks/), pra quando você quer adicionar algo mais dinâmico nas suas páginas e posts. a documentação como um todo é ótima também.
 
