@@ -127,6 +127,7 @@ async function copyPosts() {
 		// Read directories
 		const entries = await fs.readdir(SOURCE_DIR, { withFileTypes: true });
 		const directories = entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name);
+		// console.log(`Found directories: ${directories.join(', ')}`);
 
 		// Handle directories
 		for (const dir of directories) {
@@ -135,6 +136,9 @@ async function copyPosts() {
 			if (dir === 'notes') {
 				// For 'notes' directory, copy markdown files to NOTES_DIR
 				await copyMarkdownFiles(sourceDir, NOTES_DIR);
+				// For 'notes/assets' directory, copy to static/assets with force overwrite
+				const notesAssetsDir = path.join(sourceDir, 'assets');
+				await fs.cp(notesAssetsDir, STATIC_ASSETS_DIR, { recursive: true, force: true });
 				// console.log(`Processed notes directory to ${NOTES_DIR}`);
 			} else if (dir === 'assets') {
 				// For 'assets' directory, copy to static/assets with force overwrite
