@@ -55,7 +55,7 @@ first of all, most of the good things from Next were found in SvelteKit as well,
 
 for example, when creating a [SvelteKit](/notes/SvelteKit) app, the CLI asks me a few questions that helped me a lot from the get-go. not having to set up Prettier and Playwright helps **a lot** when you're starting a project.
 
-![Svelte create screenshot][assets/sveltekit-create-app-cli.png]
+<a href="/assets/sveltekit-create-app-cli.png" target="_blank"><img src="/assets/sveltekit-create-app-cli.png" alt="Svelte create screenshot" /></a>
 
 I also felt like I was just writing HTML with sprinkled bits of JS instead of JS everywhere, and that's an easy win provided by Svelte, the whole "use the platform" thing. I wrote the forms like real forms, I dealt with native Request and Response objects instead of something custom, and that even helped me learn a bit on how HTML forms work.
 
