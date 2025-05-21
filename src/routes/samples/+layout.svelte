@@ -14,6 +14,8 @@
 </article>
 
 <style global lang="postcss">
+	@reference '../../tailwind.css';
+
 	#sample-wrapper {
 		& h1,
 		& h2,
