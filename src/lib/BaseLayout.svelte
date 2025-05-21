@@ -28,9 +28,10 @@
 
 	interface Props {
 		children?: Snippet;
+		noMargin?: boolean;
 	}
 
-	let { children }: Props = $props();
+	let { children, noMargin }: Props = $props();
 
 	let timer = null;
 	let navigationIsDelayed = $state(false);
@@ -76,13 +77,15 @@
 <div class="flex flex-col justify-center px-4 sm:px-8">
 	<Nav />
 </div>
-<main class="flex flex-col justify-center px-4 sm:px-8">
+<main class={['flex flex-col grow justify-center', { 'px-4 sm:px-8': !noMargin }]}>
 	{@render children()}
 </main>
 
-<footer class="mx-auto mb-8 flex w-full max-w-3xl flex-col items-start justify-center">
+<footer class="mx-auto mb-8 flex w-full max-w-3xl flex-col items-start justify-center xl:max-w-5xl">
 	<hr class="border-1 mb-8 w-full border-zinc-200 dark:border-zinc-800" />
-	<div class="grid w-full max-w-3xl grid-cols-1 gap-4 px-4 pb-16 sm:grid-cols-2 sm:px-8">
+	<div
+		class="grid w-full max-w-3xl grid-cols-1 gap-4 px-4 pb-16 sm:grid-cols-2 sm:px-8 xl:max-w-5xl"
+	>
 		<div class="flex flex-col space-y-4">
 			<a class="text-zinc-500 transition hover:text-zinc-300" href="/">Home</a>
 			<a class="text-zinc-500 transition hover:text-zinc-300" href="/about">About me</a>

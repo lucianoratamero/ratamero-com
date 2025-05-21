@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer components {
+	#svelte {
+		@apply flex flex-col;
+		min-height: inherit;
+	}
+
 	html.geocities {
 		font-family: 'Comic Sans MS', cursive !important;
 
@@ -118,78 +123,59 @@
 		font-size: 0.875rem;
 		text-align: center;
 	}
+
+	a {
+		@apply text-cyan-800 hover:text-cyan-700 hover:underline dark:text-cyan-400 dark:hover:text-cyan-200;
+	}
+
+	.fancy-text {
+		@apply bg-gradient-to-r from-cyan-400 via-sky-500 to-pink-500 inline-block text-shadow-lg;
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.prose h1 a,
+	h2 a,
+	h3 a,
+	h4 a,
+	h5 a,
+	h6 a {
+		/* margin-left: 1rem; */
+		text-decoration: none !important;
+		@apply text-cyan-800 dark:text-cyan-400;
+	}
+
+	.prose h2::before {
+		content: '## ';
+	}
+
+	.prose h3::before {
+		content: '### ';
+	}
+
+	.prose h4::before {
+		content: '#### ';
+	}
+
+	.prose.flex p {
+		margin: 0;
+	}
+
+	.prose.flex {
+		@apply gap-4;
+	}
+
+	/* https://seek-oss.github.io/capsize/ */
+	.capsize::before {
+		content: '';
+		margin-bottom: -0.098em;
+		display: table;
+	}
+
+	.capsize::after {
+		content: '';
+		margin-top: -0.219em;
+		display: table;
+	}
 }
-
-/* bg-cyan-200 dark:hover:bg-cyan-800 */
-a {
-	@apply text-cyan-800 hover:text-cyan-700 hover:underline dark:text-cyan-400 dark:hover:text-cyan-200;
-}
-
-.prose h1 a,
-h2 a,
-h3 a,
-h4 a,
-h5 a,
-h6 a {
-	/* margin-left: 1rem; */
-	text-decoration: none !important;
-	@apply text-cyan-800 dark:text-cyan-400;
-}
-
-.prose h2::before {
-	content: '## ';
-}
-
-.prose h3::before {
-	content: '### ';
-}
-
-.prose h4::before {
-	content: '#### ';
-}
-
-.prose.flex p {
-	margin: 0;
-}
-
-.prose.flex {
-	@apply gap-4;
-}
-
-/* https://seek-oss.github.io/capsize/ */
-.capsize::before {
-	content: '';
-	margin-bottom: -0.098em;
-	display: table;
-}
-
-.capsize::after {
-	content: '';
-	margin-top: -0.219em;
-	display: table;
-}
-
-/*
-  CUSTOM SCROLLBARS!
-  - https://css-tricks.com/strut-your-stuff-with-a-custom-scrollbar/
-  */
-/*body {*/
-/*    !* --scrollbar-primary-color: #3730a3; *!*/
-/*    --scrollbar-primary-color: var(--brand-accent);*/
-/*    --text-color: #ef4444;*/
-/*}*/
-
-/* .dark body {
-    --scrollbar-primary-color: #8db2e5;
-  } */
-/* body::-webkit-scrollbar-track {
-    background-color: var(--bg-color);
-  } */
-/*body::-webkit-scrollbar {*/
-/*    width: 0.5rem;*/
-/*}*/
-
-/*body::-webkit-scrollbar-thumb {*/
-/*    background: linear-gradient(var(--scrollbar-primary-color), var(--text-color));*/
-/*    border-radius: 4px;*/
-/*}*/

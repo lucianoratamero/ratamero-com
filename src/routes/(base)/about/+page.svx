@@ -28,7 +28,7 @@ I love reading, writing, playing videogames, listening to music, and watching st
 
 I'm a JavaScript and Python web developer, working mainly on the frontend. I've worked with a lot of tehcnologies over the years, including React, Vue, Django and Svelte.
 
-Currently, I'm developing apps for [Lincoln Loop](https://lincolnloop.com/). I also sometimes make some videos on [YouTube](https://www.youtube.com/channel/UCYBAN_yOwqKG6tlaPHvROqg).
+Currently, I'm developing apps for [Lincoln Loop](https://lincolnloop.com/), though I'm open for consultations. I also sometimes make some videos on [YouTube](https://www.youtube.com/channel/UCYBAN_yOwqKG6tlaPHvROqg).
 
 Feel free to take a look around! I leave a lot of notes on things I'm interested about, so I hope they're of use to you.
 

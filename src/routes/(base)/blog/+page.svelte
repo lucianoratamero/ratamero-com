@@ -39,7 +39,7 @@
 
 <svelte:window onkeyup={focusSearch} />
 
-<article class="mx-auto mb-16 flex max-w-3xl flex-col items-start justify-center px-4 sm:px-8">
+<article class="mx-auto mb-16 flex max-w-3xl flex-col items-start justify-center px-4 sm:px-8 xl:max-w-5xl">
 	<h1 class="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
 		Blog
 	</h1>
@@ -105,12 +105,12 @@
 			</div>
 		{/if}
 	{:else if search}
-		<div class="prose dark:prose-invert">
+		<div class="prose dark:prose-invert xl:prose-xl">
 			No posts found for
 			<code>{search}</code>.
 		</div>
 		<button class="p-2 bg-slate-500" onclick={() => (search = '')}>Clear your search</button>
 	{:else}
-		<div class="prose dark:prose-invert">No blogposts found!</div>
+		<div class="prose dark:prose-invert xl:prose-xl">No blogposts found!</div>
 	{/if}
 </article>

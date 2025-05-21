@@ -5,7 +5,7 @@
 
 <section
 	class='relative mx-auto flex w-full max-w-3xl flex-col py-8 text-zinc-900
-	dark:text-zinc-100 sm:pb-16 sm:px-7'
+	dark:text-zinc-100 sm:pb-16 sm:px-7 xl:max-w-5xl'
 >
 	<h1 class='mb-6 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl'>@mastodon -
 		@lucianoratamero@bolha.us</h1>

@@ -72,19 +72,19 @@
 <nav
 	class="relative mx-auto flex w-full max-w-3xl items-center justify-between border-zinc-200
 	bg-opacity-60 pt-8 mb-8 text-zinc-900 dark:border-zinc-700
-	dark:text-zinc-100 sm:mb-16 sm:px-7"
+	dark:text-zinc-100 sm:mb-16 sm:px-8 xl:max-w-5xl"
 >
 	<a href="#skip" class="skip-nav">Skip to content</a>
 	<MobileMenu />
-	<ul class="ml-[-0.60rem] flex">
+	<span class="grow md:grow-0">
+		<a class="fancy-text text-4xl font-bold hover:no-underline" href="/">hi :]</a>
+	</span>
+	<ul class="flex items-center">
 		<li>
-			<NavLink href="/">Home</NavLink>
+			<NavLink href="/blog">blog</NavLink>
 		</li>
 		<li>
-			<NavLink href="/blog">Blog</NavLink>
-		</li>
-		<li>
-			<NavLink href="/about">About</NavLink>
+			<NavLink href="/about">about me</NavLink>
 		</li>
 		<!--		<li>-->
 		<!--			<NavLink href='/mastodon-feed'>@mastodon</NavLink>-->

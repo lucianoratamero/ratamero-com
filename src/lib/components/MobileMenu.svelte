@@ -66,7 +66,7 @@
 	</button>
 	{#if isOpen}
 		<ul
-			class="menu absolute flex flex-col bg-zinc-50 text-2xl uppercase dark:bg-zinc-900"
+			class="menu absolute flex flex-col text-2xl bg-gradient-to-br from-white to-zinc-100 dark:bg-gradient-to-br dark:from-zinc-800 dark:to-zinc-900"
 			class:menuRendered={isMenuRendered}
 		>
 			<li
@@ -77,8 +77,10 @@
 					class="flex w-auto pb-4"
 					data-sveltekit-prefetch
 					onclick={() => setTimeout(() => (isOpen = false), 300)}
-					href="/">Home</a
+					href="/"
 				>
+					home
+				</a>
 			</li>
 			<li
 				class="border-b border-zinc-300 font-semibold text-zinc-900 dark:border-zinc-700 dark:text-zinc-100"
@@ -88,8 +90,10 @@
 					class="flex w-auto pb-4"
 					data-sveltekit-prefetch
 					onclick={() => setTimeout(() => (isOpen = false), 300)}
-					href="/blog">Blog</a
+					href="/blog"
 				>
+					blog
+				</a>
 			</li>
 			<li
 				class="border-b border-zinc-300 font-semibold text-zinc-900 dark:border-zinc-700 dark:text-zinc-100"
@@ -99,8 +103,10 @@
 					class="flex w-auto pb-4"
 					data-sveltekit-prefetch
 					onclick={() => setTimeout(() => (isOpen = false), 300)}
-					href="/about">About me</a
+					href="/about"
 				>
+					about
+				</a>
 			</li>
 		</ul>
 	{/if}
