@@ -53,12 +53,12 @@ export default {
 						},
 						img: {
 							'border-radius': '5px',
-							'padding': '0',
-							'border': '2px solid',
-							'margin': '0 auto'
+							padding: '0',
+							border: '2px solid',
+							margin: '0 auto'
 						},
 						'.prose p:first-child img:first-child': {
-							'margin': 0,
+							margin: 0,
 							border: 0
 						},
 						'ol > li::marker': {

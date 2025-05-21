@@ -83,9 +83,7 @@
 
 <footer class="mx-auto my-8 flex w-full max-w-3xl px-6 flex-col items-start justify-center">
 	<hr class="border-1 mb-8 w-full border-zinc-200 dark:border-zinc-800" />
-	<div
-		class="grid w-full max-w-3xl grid-cols-1 gap-4 px-6 pb-16 sm:grid-cols-2"
-	>
+	<div class="grid w-full max-w-3xl grid-cols-1 gap-4 px-6 pb-16 sm:grid-cols-2">
 		<div class="flex flex-col space-y-4">
 			<a class="text-zinc-500 transition hover:text-zinc-300" href="/">Home</a>
 			<a class="text-zinc-500 transition hover:text-zinc-300" href="/about">About me</a>

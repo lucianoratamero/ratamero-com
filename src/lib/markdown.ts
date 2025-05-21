@@ -78,7 +78,7 @@ export async function processAll(processedPath = null): Promise<ContentItem[]> {
 	return _.sortBy(postsMetadata, ['date']).reverse();
 }
 
-export async function processAllWithContent(prefix='blog'): Promise<ContentFromFile[]> {
+export async function processAllWithContent(prefix = 'blog'): Promise<ContentFromFile[]> {
 	const files = fs
 		.readdirSync(`src/routes/(base)/${prefix}/`)
 		.filter((file) => !file.endsWith('.svelte') && !file.startsWith('+'));

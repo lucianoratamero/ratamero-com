@@ -1,5 +1,5 @@
 /// <reference types="@sveltejs/kit" />
 
 interface String {
-  replaceAll(search: string, replace: string): string;
+	replaceAll(search: string, replace: string): string;
 }
