@@ -74,17 +74,17 @@
 	</div>
 {/if}
 
-<div class="flex flex-col justify-center px-4 sm:px-8">
+<div class="flex flex-col justify-center">
 	<Nav />
 </div>
-<main class={['flex flex-col grow justify-center', { 'px-4 sm:px-8': !noMargin }]}>
+<main class={['flex flex-col grow justify-center', { 'px-4 sm:px-6': !noMargin }]}>
 	{@render children()}
 </main>
 
-<footer class="mx-auto mb-8 flex w-full max-w-3xl flex-col items-start justify-center xl:max-w-5xl">
+<footer class="mx-auto my-8 flex w-full max-w-3xl px-6 flex-col items-start justify-center">
 	<hr class="border-1 mb-8 w-full border-zinc-200 dark:border-zinc-800" />
 	<div
-		class="grid w-full max-w-3xl grid-cols-1 gap-4 px-4 pb-16 sm:grid-cols-2 sm:px-8 xl:max-w-5xl"
+		class="grid w-full max-w-3xl grid-cols-1 gap-4 px-6 pb-16 sm:grid-cols-2"
 	>
 		<div class="flex flex-col space-y-4">
 			<a class="text-zinc-500 transition hover:text-zinc-300" href="/">Home</a>
@@ -131,12 +131,7 @@
 		</div>
 	</div>
 
-	<p class="px-4 prose text-xs dark:prose-invert sm:px-8">
+	<p class="px-4 prose text-xs dark:prose-invert">
 		Click and hold the theme switcher for a surprise!
-	</p>
-	<p class="prose px-4 dark:prose-invert sm:px-8">
-		This blog is based on the
-		<a href="https://swyxkit.netlify.app/">swyxkit</a>
-		template, with heavy modifications.
 	</p>
 </footer>

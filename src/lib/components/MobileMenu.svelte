@@ -17,14 +17,14 @@
 
 <div class="ml-[-0.60rem] md:hidden">
 	<button
-		class="burger visible"
+		class="burger visible cursor-pointer"
 		aria-label="Toggle menu"
 		type="button"
 		onclick={() => (isOpen = !isOpen)}
 	>
 		{#if !isOpen}
 			<svg
-				class="absolute h-5 w-5 text-zinc-900 dark:text-zinc-100"
+				class="absolute h-6 w-6 text-zinc-900 dark:text-zinc-100"
 				width="20"
 				height="20"
 				viewBox="0 0 20 20"
@@ -66,7 +66,7 @@
 	</button>
 	{#if isOpen}
 		<ul
-			class="menu absolute flex flex-col text-2xl bg-gradient-to-br from-white to-zinc-100 dark:bg-gradient-to-br dark:from-zinc-800 dark:to-zinc-900"
+			class="menu absolute flex flex-col text-2xl px-4 bg-gradient-to-br from-white to-zinc-100 dark:bg-gradient-to-br dark:from-zinc-800 dark:to-zinc-900"
 			class:menuRendered={isMenuRendered}
 		>
 			<li
@@ -113,6 +113,8 @@
 </div>
 
 <style lang="postcss">
+	@reference '../../tailwind.css';
+
 	.burger {
 		transition: opacity 300ms ease;
 		border: 0;
@@ -133,7 +135,6 @@
 	}
 
 	.menu {
-		padding: 0 28px 0 4px;
 		margin: 0;
 		padding-top: 24px;
 		width: 100%;

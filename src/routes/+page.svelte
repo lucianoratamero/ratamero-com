@@ -40,26 +40,38 @@
 	<article
 		class="mx-auto flex flex-col items-start justify-center border-zinc-200 dark:border-zinc-700 w-full h-full"
 	>
-		<div class="flex flex-col-reverse items-start m-0 py-6 sm:flex-row mb-8 w-full my-8 bg-cyan-100/50 dark:bg-cyan-900/50 text-black dark:text-white">
-			<div class="flex flex-col text-2xl font-medium w-full max-w-3xl lg:max-w-5xl m-auto py-8">
-				<div>
+		<div
+			class="flex flex-col-reverse items-start m-0 py-6 sm:flex-row mb-8 w-full my-8 bg-cyan-100/50 dark:bg-cyan-900/50 text-black dark:text-white"
+		>
+			<div class="flex flex-col text-xl font-medium w-full max-w-3xl m-auto py-8 px-6">
+				<div class="animate-slide-up animation-delay-500 opacity-0 mb-2">
 					<h1
-						class="fancy-text text-4xl font-bold md:text-[8rem] inline-block leading-none"
+						class="fancy-text text-6xl font-bold -ml-[0.2rem] md:text-[8rem] inline-block leading-none"
 					>
 						hi :]
 					</h1>
 				</div>
 
 				<div>
-					<p>I'm Luciano Ratamero (he/him), brazilian, JS/Python developer.</p>
-					<p>I love discovering and sharing about all things tech, with a focus on frontend.</p>
-					<p>here's where I share my posts and notes, both in english and brazilian languages.</p>
-					<p class="text-cyan-600 dark:text-cyan-400">welcome in!</p>
+					<h2 class="animate-slide-up animation-delay-600 opacity-0 mb-2">
+						I'm Luciano Ratamero (he/him), brazilian, JS/Python developer.
+					</h2>
+					<p class="animate-slide-up animation-delay-800 opacity-0 mb-2">
+						I love researching all things tech, especially about frontend.
+					</p>
+					<p class="animate-slide-up animation-delay-1000 opacity-0 mb-2">
+						here's where I share my posts and notes, both in english and brazilian languages.
+					</p>
+					<p
+						class="animate-slide-up animation-delay-1200 opacity-0 text-cyan-600 dark:text-cyan-400"
+					>
+						welcome in!
+					</p>
 				</div>
 			</div>
 		</div>
 
-		<section id="skip" class="w-full max-w-3xl lg:max-w-5xl m-auto">
+		<section id="skip" class="w-full max-w-3xl px-6 m-auto">
 			<h3 class="mb-6 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
 				Featured Posts
 			</h3>
@@ -92,9 +104,3 @@
 		</section>
 	</article>
 </BaseLayout>
-
-<style>
-	img {
-		height: 25vh;
-	}
-</style>

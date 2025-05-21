@@ -71,8 +71,8 @@
 
 <nav
 	class="relative mx-auto flex w-full max-w-3xl items-center justify-between border-zinc-200
-	bg-opacity-60 pt-8 mb-8 text-zinc-900 dark:border-zinc-700
-	dark:text-zinc-100 sm:mb-16 sm:px-8 xl:max-w-5xl"
+	bg-opacity-60 pt-8 px-4 mb-8 text-zinc-900 dark:border-zinc-700
+	dark:text-zinc-100 sm:mb-16 sm:px-6"
 >
 	<a href="#skip" class="skip-nav">Skip to content</a>
 	<MobileMenu />
@@ -82,6 +82,9 @@
 	<ul class="flex items-center">
 		<li>
 			<NavLink href="/blog">blog</NavLink>
+		</li>
+		<li>
+			<NavLink href="/notes">notes</NavLink>
 		</li>
 		<li>
 			<NavLink href="/about">about me</NavLink>

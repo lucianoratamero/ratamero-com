@@ -1,6 +1,50 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+	--animate-slide-up: slideUp 500ms ease-in forwards;
+
+	@keyframes slideUp {
+		0% {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+}
+
+@custom-variant dark (&:is(.dark *));
+
+/* ========================
+tailwindcss-animation-delay
+https://github.com/burnworks/tailwindcss-animation-delay
+======================== */
+@utility animation-delay-none {
+	animation-delay: 0s;
+}
+@utility animation-delay-inherit {
+	animation-delay: inherit;
+}
+@utility animation-delay-initial {
+	animation-delay: initial;
+}
+@utility animation-delay-revert {
+	animation-delay: revert;
+}
+@utility animation-delay-revert-layer {
+	animation-delay: revert-layer;
+}
+@utility animation-delay-unset {
+	animation-delay: unset;
+}
+@utility animation-delay-* {
+	animation-delay: --value([ *]);
+	animation-delay: calc(--value(integer) * 1ms);
+}
 
 @layer components {
 	#svelte {
@@ -55,6 +99,7 @@
   } */
 	:root {
 		accent-color: var(--brand-accent);
+		--tw-prose-invert-quote-borders: var(--color-red-500);
 	}
 
 	:focus-visible {
@@ -128,8 +173,26 @@
 		@apply text-cyan-800 hover:text-cyan-700 hover:underline dark:text-cyan-400 dark:hover:text-cyan-200;
 	}
 
+	/* https://seek-oss.github.io/capsize/ */
+	.capsize::before {
+		/* https://seek-oss.github.io/capsize/ */
+		.capsize::before {
+			content: '';
+			margin-bottom: -0.098em;
+			display: table;
+		}
+
+		.capsize::after {
+			content: '';
+			margin-top: -0.219em;
+			display: table;
+		}
+	}
+}
+
+@layer utilities {
 	.fancy-text {
-		@apply bg-gradient-to-r from-cyan-400 via-sky-500 to-pink-500 inline-block text-shadow-lg;
+		@apply bg-gradient-to-r from-cyan-400 via-sky-500 to-pink-500 inline-block;
 		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
@@ -143,7 +206,7 @@
 	h6 a {
 		/* margin-left: 1rem; */
 		text-decoration: none !important;
-		@apply text-cyan-800 dark:text-cyan-400;
+		@apply text-cyan-600 dark:text-cyan-400;
 	}
 
 	.prose h2::before {
@@ -166,16 +229,69 @@
 		@apply gap-4;
 	}
 
-	/* https://seek-oss.github.io/capsize/ */
-	.capsize::before {
-		content: '';
-		margin-bottom: -0.098em;
-		display: table;
+	.prose blockquote {
+		border-inline-start-color: var(--color-red-500);
+		font-size: inherit;
+		font-style: inherit;
+		font-weight: 500; /* 'medium' in Tailwind */
 	}
 
-	.capsize::after {
+	.prose blockquote p:first-of-type::before,
+	.prose blockquote p:last-of-type::after {
 		content: '';
-		margin-top: -0.219em;
-		display: table;
+	}
+
+	.prose code::before,
+	.prose code::after {
+		content: none;
+	}
+
+	.prose code {
+		border-radius: 0.25rem;
+		padding: 0.15rem 0.3rem 0;
+		border-width: 1px;
+		border-style: solid;
+		border-color: #113652;
+	}
+
+	/* .prose a:hover {
+		color: #113652;
+		text-decoration: underline !important;
+	} */
+
+	.prose a {
+		@apply text-cyan-600 dark:text-cyan-400;
+	}
+
+	.prose a code {
+		color: unset;
+	}
+
+	.prose li,
+	.prose ul,
+	.prose ol {
+		margin: 0;
+	}
+
+	.prose li > img {
+		margin: 0;
+		display: inline;
+	}
+
+	.prose img {
+		border-radius: 5px;
+		padding: 0;
+		border: 2px solid;
+		margin: 0 auto;
+	}
+
+	.prose p:first-child img:first-child {
+		margin: 0;
+		border: 0;
+	}
+
+	.prose ol > li::marker,
+	.prose ul > li::marker {
+		color: var(--tw-prose-body);
 	}
 }

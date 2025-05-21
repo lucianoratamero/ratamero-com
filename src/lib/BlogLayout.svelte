@@ -40,7 +40,7 @@
 
 <article
 	id="skip"
-	class="mx-auto mb-8 flex w-full max-w-3xl flex-col items-start justify-center sm:px-8 xl:max-w-5xl"
+	class="mx-auto mb-8 flex w-full max-w-3xl flex-col items-start justify-center sm:px-6"
 >
 	<h1 class="mb-8 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
 		{title}
@@ -57,7 +57,7 @@
 		class="my-2 flex h-1 bg-gradient-to-r from-cyan-400 via-sky-500 to-pink-500 sm:mx-0 w-full"
 	></div>
 
-	<div class="prose mt-12 w-full max-w-none dark:prose-invert xl:prose-xl">
+	<div class="prose mt-12 w-full max-w-none dark:prose-invert 2xl:prose-xl">
 		{@render children()}
 	</div>
 

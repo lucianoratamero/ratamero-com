@@ -7,8 +7,8 @@
 	const children_render = $derived(children);
 </script>
 
-<article class="mx-auto p-2 flex w-full max-w-3xl flex-col items-start justify-center sm:p-4 xl:max-w-5xl">
-	<div id="sample-wrapper" class="prose mt-12 w-full max-w-none dark:prose-invert xl:prose-xl">
+<article class="mx-auto p-2 flex w-full max-w-3xl flex-col items-start justify-center sm:p-4">
+	<div id="sample-wrapper" class="prose mt-12 w-full max-w-none dark:prose-invert 2xl:prose-xl">
 		{@render children_render?.()}
 	</div>
 </article>
