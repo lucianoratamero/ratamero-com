@@ -6,6 +6,9 @@
 		"lib": [
 			"es2020"
 		],
+		"types": [
+			"node"
+		],
 		"target": "es2019",
 		"isolatedModules": true,
 		"resolveJsonModule": true,
