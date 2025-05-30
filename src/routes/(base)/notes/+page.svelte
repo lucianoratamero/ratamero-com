@@ -9,7 +9,7 @@
 	let inputEl: HTMLInputElement = $state();
 
 	function focusSearch(e) {
-		if (e.key === '/' && inputEl) inputEl.select();
+		if (e.key === '?' && inputEl) inputEl.select();
 	}
 
 	let isTruncated = $state(items.length > 20);
@@ -54,8 +54,8 @@
 			type="text"
 			bind:value={search}
 			bind:this={inputEl}
-			placeholder="Hit / to search by title and description"
-			class="block w-full rounded-md border border-zinc-200 bg-white px-4 py-2 text-zinc-900 focus:border-blue-500 focus:ring-blue-500 dark:border-zinc-900 dark:bg-zinc-800 dark:text-zinc-100"
+			placeholder="Hit ? to search by title and description"
+			class="block w-full rounded-md border border-zinc-200 bg-white px-4 py-2 text-cyan-900 focus:border-blue-500 focus:ring-blue-500 dark:border-cyan-900 dark:bg-cyan-950 dark:text-white"
 		/>
 		<svg
 			class="absolute right-3 top-3 h-5 w-5 text-zinc-400 dark:text-zinc-300"
@@ -110,7 +110,9 @@
 			No posts found for
 			<code>{search}</code>.
 		</div>
-		<button class="p-2 bg-slate-500" onclick={() => (search = '')}>Clear your search</button>
+		<button class="p-2 mt-4 rounded bg-cyan-800 text-white" onclick={() => (search = '')}
+			>Clear your search</button
+		>
 	{:else}
 		<div class="prose dark:prose-invert 2xl:prose-xl">No blogposts found!</div>
 	{/if}

@@ -74,7 +74,7 @@
 	bg-opacity-60 pt-8 px-4 mb-8 text-zinc-900 dark:border-zinc-700
 	dark:text-zinc-100 sm:mb-16 sm:px-6"
 >
-	<a href="#skip" class="skip-nav">Skip to content</a>
+	<a href="#skip" class="skip-nav text-black dark:text-white">Skip to content</a>
 	<MobileMenu />
 	<span class="grow md:grow-0">
 		<a class="fancy-text text-4xl font-bold hover:no-underline" href="/">hi :]</a>

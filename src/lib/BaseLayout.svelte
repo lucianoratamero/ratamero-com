@@ -82,18 +82,18 @@
 </main>
 
 <footer class="mx-auto my-8 flex w-full max-w-3xl px-6 flex-col items-start justify-center">
-	<hr class="border-1 mb-8 w-full border-zinc-200 dark:border-zinc-800" />
+	<hr class="border-1 mb-8 w-full border-cyan-800 dark:border-cyan-200" />
 	<div class="grid w-full max-w-3xl grid-cols-1 gap-4 px-6 pb-16 sm:grid-cols-2">
 		<div class="flex flex-col space-y-4">
-			<a class="text-zinc-500 transition hover:text-zinc-300" href="/">Home</a>
-			<a class="text-zinc-500 transition hover:text-zinc-300" href="/about">About me</a>
-			<span class="text-zinc-500">
-				<a class="text-zinc-500 transition hover:text-zinc-300" href="/feed.xml" rel="external">
+			<a class="text-cyan-900 hover:text-cyan-800 dark:text-zinc-200 transition dark:hover:text-zinc-100" href="/">Home</a>
+			<a class="text-cyan-900 hover:text-cyan-800 dark:text-zinc-200 transition dark:hover:text-zinc-100" href="/about">About me</a>
+			<span>
+				<a class="text-cyan-900 hover:text-cyan-800 dark:text-zinc-200 transition dark:hover:text-zinc-100" href="/feed.xml" rel="external">
 					Blog RSS
 				</a>
 				-
 				<a
-					class="text-zinc-500 transition hover:text-zinc-300"
+					class="text-cyan-900 hover:text-cyan-800 dark:text-zinc-200 transition dark:hover:text-zinc-100"
 					href="/notes/feed.xml"
 					rel="external"
 				>
@@ -103,7 +103,7 @@
 		</div>
 		<div class="flex flex-col space-y-4">
 			<a
-				class="text-zinc-500 transition hover:text-zinc-300"
+				class="text-cyan-900 hover:text-cyan-800 dark:text-zinc-200 transition dark:hover:text-zinc-100"
 				target="_blank"
 				rel="noopener noreferrer"
 				href="https://bsky.app/profile/lucianoratamero.bsky.social"
@@ -111,7 +111,7 @@
 				Bluesky
 			</a>
 			<a
-				class="text-zinc-500 transition hover:text-zinc-300"
+				class="text-cyan-900 hover:text-cyan-800 dark:text-zinc-200 transition dark:hover:text-zinc-100"
 				target="_blank"
 				rel="noopener noreferrer"
 				href={REPO_URL}
@@ -119,7 +119,7 @@
 				GitHub
 			</a>
 			<a
-				class="text-zinc-500 transition hover:text-zinc-300"
+				class="text-cyan-900 hover:text-cyan-800 dark:text-zinc-200 transition dark:hover:text-zinc-100"
 				target="_blank"
 				rel="noopener noreferrer"
 				href={MY_YOUTUBE}

@@ -38,13 +38,13 @@
 
 <BaseLayout noMargin>
 	<article
-		class="mx-auto flex flex-col items-start justify-center border-zinc-200 dark:border-zinc-700 w-full h-full"
+		class="mx-auto flex flex-col items-start justify-center border-cyan-200 dark:border-cyan-700 w-full h-full"
 	>
 		<div
-			class="flex flex-col-reverse items-start m-0 py-6 sm:flex-row mb-8 w-full my-8 bg-cyan-100/50 dark:bg-cyan-900/50 text-black dark:text-white"
+			class="flex flex-col-reverse items-start m-0 py-6 sm:flex-row mb-8 w-full my-8 bg-cyan-200/50 dark:bg-cyan-800/50 text-black dark:text-white"
 		>
 			<div class="flex flex-col text-xl font-medium w-full max-w-3xl m-auto py-8 px-6">
-				<div class="animate-slide-up animation-delay-500 opacity-0 mb-2">
+				<div class="animate-slide-up animation-delay-500 opacity-0 mb-6">
 					<h1
 						class="fancy-text text-6xl font-bold -ml-[0.2rem] md:text-[8rem] inline-block leading-none"
 					>
@@ -83,7 +83,7 @@
 				{/each}
 			</div>
 			<a
-				class="mt-8 flex h-6 rounded-lg leading-7 text-zinc-600 transition-all dark:text-zinc-400 dark:hover:text-zinc-200"
+				class="mt-8 flex h-6 rounded-lg leading-7 text-zinc-800 transition-all dark:text-zinc-200 dark:hover:text-zinc-100"
 				href="/blog"
 				>See latest posts
 				<svg

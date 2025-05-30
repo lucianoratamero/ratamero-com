@@ -14,7 +14,7 @@
 	data-sveltekit-prefetch
 >
 	<div
-		class="flex h-full flex-col justify-between rounded-lg p-4 bg-gradient-to-br from-white to-zinc-100 dark:bg-gradient-to-br dark:from-zinc-800 dark:to-zinc-900"
+		class="flex h-full flex-col justify-between rounded-lg p-4 bg-gradient-to-br from-cyan-50 to-pink-50 dark:bg-gradient-to-br dark:from-cyan-900 dark:via-cyan-950 dark:to-pink-950"
 	>
 		<div class="flex flex-col justify-between md:flex-row">
 			<h4
