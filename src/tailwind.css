@@ -191,6 +191,10 @@ https://github.com/burnworks/tailwindcss-animation-delay
 }
 
 @layer utilities {
+	hr {
+		@apply !border-1 border-dashed !w-full !border-cyan-800 dark:!border-cyan-200;
+	}
+
 	.fancy-text {
 		@apply bg-gradient-to-r from-cyan-400 via-sky-500 to-pink-500 inline-block;
 		background-clip: text;
