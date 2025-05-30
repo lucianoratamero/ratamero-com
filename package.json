@@ -67,7 +67,7 @@
 		"unified": "^11.0.5",
 		"vfile": "^6.0.3",
 		"vfile-reporter": "^8.1.1",
-		"vite": "^6.3.5"
+		"rolldown-vite": "^6.3.5"
 	},
 	"dependencies": {
 		"@tailwindcss/postcss": "^4.1.7",
