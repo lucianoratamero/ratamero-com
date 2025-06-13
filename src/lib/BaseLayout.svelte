@@ -77,7 +77,7 @@
 <div class="flex flex-col justify-center">
 	<Nav />
 </div>
-<main class={['flex flex-col grow justify-center', { 'px-4 sm:px-6': !noMargin }]}>
+<main class={['flex flex-col grow justify-between', { 'px-4 sm:px-6': !noMargin }]}>
 	{@render children()}
 </main>
 
