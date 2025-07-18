@@ -7,7 +7,7 @@ description: "It's been a week since I started using Obsidian. It sells itself a
 ---
 <a href="/assets/obsidian-logo.png" target="_blank"><img src="/assets/obsidian-logo.png" alt="Obdisian's logo" /></a>
 It's been a week since I started using Obsidian. It sells itself as a "second brain" app, and I must say: until now, it has not disappointed. Come with me and you'll see that it's not just about productivity, but about being healthier. :]
-
+ 
 ## What is Obsidian?
 [Obsidian](https://obsidian.md/) is mostly a text editor, and it was made for you to organize your thoughts, research topics, writings, anything. The general idea is that you write simple [Markdown](/notes/Markdown) files, which is plenty for most writing scenarios, and link them together, effectively making a [knowledge base](/notes/knowledge-base).
 

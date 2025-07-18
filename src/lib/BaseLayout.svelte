@@ -85,10 +85,20 @@
 	<hr class="border-1 mb-8 w-full border-cyan-800 dark:border-cyan-200" />
 	<div class="grid w-full max-w-3xl grid-cols-1 gap-4 px-6 pb-16 sm:grid-cols-2">
 		<div class="flex flex-col space-y-4">
-			<a class="text-cyan-900 hover:text-cyan-800 dark:text-zinc-200 transition dark:hover:text-zinc-100" href="/">Home</a>
-			<a class="text-cyan-900 hover:text-cyan-800 dark:text-zinc-200 transition dark:hover:text-zinc-100" href="/about">About me</a>
+			<a
+				class="text-cyan-900 hover:text-cyan-800 dark:text-zinc-200 transition dark:hover:text-zinc-100"
+				href="/">Home</a
+			>
+			<a
+				class="text-cyan-900 hover:text-cyan-800 dark:text-zinc-200 transition dark:hover:text-zinc-100"
+				href="/about">About me</a
+			>
 			<span>
-				<a class="text-cyan-900 hover:text-cyan-800 dark:text-zinc-200 transition dark:hover:text-zinc-100" href="/feed.xml" rel="external">
+				<a
+					class="text-cyan-900 hover:text-cyan-800 dark:text-zinc-200 transition dark:hover:text-zinc-100"
+					href="/feed.xml"
+					rel="external"
+				>
 					Blog RSS
 				</a>
 				-

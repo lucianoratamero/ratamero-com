@@ -42,7 +42,7 @@ https://github.com/burnworks/tailwindcss-animation-delay
 	animation-delay: unset;
 }
 @utility animation-delay-* {
-	animation-delay: --value([ *]);
+	animation-delay: --value([*]);
 	animation-delay: calc(--value(integer) * 1ms);
 }
 

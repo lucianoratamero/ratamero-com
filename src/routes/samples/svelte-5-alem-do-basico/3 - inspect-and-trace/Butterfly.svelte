@@ -15,11 +15,15 @@
 	<svg
 		viewBox="0 0 566 500"
 		xmlns="http://www.w3.org/2000/svg"
-		onanimationend={() => pressed = false}
+		onanimationend={() => (pressed = false)}
 		class:pressed
 	>
 		<defs>
-			<path id="wing" fill="currentColor" d="M 123.244 35.008 C 188.248 83.809 283.836 176.879 283.836 235.857 C 283.836 316.899 283.879 235.845 283.836 376.038 C 283.889 375.995 282.67 376.544 280.212 383.758 C 266.806 423.111 214.487 576.685 94.841 453.913 C 31.843 389.269 61.013 324.625 175.682 305.108 C 110.08 316.274 36.332 297.827 16.093 225.504 C 10.271 204.699 0.343 76.56 0.343 59.246 C 0.343 -27.451 76.342 -0.206 123.244 35.008 Z" />
+			<path
+				id="wing"
+				fill="currentColor"
+				d="M 123.244 35.008 C 188.248 83.809 283.836 176.879 283.836 235.857 C 283.836 316.899 283.879 235.845 283.836 376.038 C 283.889 375.995 282.67 376.544 280.212 383.758 C 266.806 423.111 214.487 576.685 94.841 453.913 C 31.843 389.269 61.013 324.625 175.682 305.108 C 110.08 316.274 36.332 297.827 16.093 225.504 C 10.271 204.699 0.343 76.56 0.343 59.246 C 0.343 -27.451 76.342 -0.206 123.244 35.008 Z"
+			/>
 		</defs>
 		<use xlink:href="#wing" class="left"></use>
 		<use xlink:href="#wing" class="right"></use>
@@ -32,65 +36,65 @@
 		height: 100%;
 		background: transparent;
 		border: none;
-    margin: 0 auto;
-    display: block;
+		margin: 0 auto;
+		display: block;
 	}
 	svg {
-	  /* width: 50%;
+		/* width: 50%;
 	  height: 50%; */
-	  transition: 500ms;
+		transition: 500ms;
 	}
 
 	.left {
-	  transform-origin: center;
+		transform-origin: center;
 	}
 	.right {
-	  transform-origin: center;
-	  transform: scale(-1, 1);
+		transform-origin: center;
+		transform: scale(-1, 1);
 	}
 
 	.pressed .left {
-	   animation: flutter 430ms ease-in-out;
-	   --flip: 1;
+		animation: flutter 430ms ease-in-out;
+		--flip: 1;
 	}
 	.pressed .right {
-	   animation: flutter 500ms ease-in-out;
-	  --flip: -1;
+		animation: flutter 500ms ease-in-out;
+		--flip: -1;
 	}
 	svg.pressed {
-	  transform: rotate(-5deg);
-	  transition: 500ms;
+		transform: rotate(-5deg);
+		transition: 500ms;
 	}
 
 	path {
-		fill: rgb(60 129 246)
+		fill: rgb(60 129 246);
 	}
 
 	@media (prefers-reduced-motion) {
-	  .pressed .left,
-	  .pressed .right {
-	    animation: none;
-	  }
+		.pressed .left,
+		.pressed .right {
+			animation: none;
+		}
 	}
 
 	@keyframes flutter {
-	  10% {
-	    transform: scale(calc(var(--flip)*1), 0.9);
-	  }
-	  20% {
-	    transform: scale(calc(var(--flip)*0.5), 1)
-	  }
-	  40% {
-	    transform: scale(calc(var(--flip)*0.9), 0.95);
-	  }
-	  60% {
-	    transform: scale(calc(var(--flip)*0.3), 1);
-	  }
-	  80% {
-	    transform: scale(calc(var(--flip)*0.9), 0.95);
-	  }
-	  100% {
-	    transform: scale(calc(var(--flip)*1), 1);
-	  }
+		10% {
+			transform: scale(calc(var(--flip) * 1), 0.9);
+		}
+		20% {
+			transform: scale(calc(var(--flip) * 0.5), 1);
+		}
+		40% {
+			transform: scale(calc(var(--flip) * 0.9), 0.95);
+		}
+		60% {
+			transform: scale(calc(var(--flip) * 0.3), 1);
+		}
+		80% {
+			transform: scale(calc(var(--flip) * 0.9), 0.95);
+		}
+		100% {
+			transform: scale(calc(var(--flip) * 1), 1);
+		}
 	}
 </style>

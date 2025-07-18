@@ -4,7 +4,7 @@
 
 	let props: {
 		href: string;
-		children: Snippet
+		children: Snippet;
 	} = $props();
 	let active_classes = $derived(
 		page.url.pathname === props.href ||

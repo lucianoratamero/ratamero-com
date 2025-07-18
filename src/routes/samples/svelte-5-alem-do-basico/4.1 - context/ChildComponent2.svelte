@@ -1,6 +1,5 @@
 <script>
 	import ChildComponent3 from './ChildComponent3.svelte';
-
 </script>
 
 <div>
