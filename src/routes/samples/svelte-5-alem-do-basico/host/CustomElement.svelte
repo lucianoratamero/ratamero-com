@@ -5,15 +5,15 @@
 		$host().dispatchEvent(new CustomEvent(type));
 	}
 
-	const reset = (event: Event) => {
+	const internalReset = (event: Event) => {
 		console.log(event);
-		$host().dispatchEvent(new CustomEvent('reset'));
+		console.log($host());
+		$host().dispatchEvent(new CustomEvent('internalreset'));
 	};
 
 	$effect(() => {
-		$host().addEventListener('reset', reset);
-
-		return $host().removeEventListener('reset', reset);
+		$host().addEventListener('reset', (e) => internalReset(e));
+		return $host().removeEventListener('reset', (e) => internalReset(e));
 	});
 </script>
 
