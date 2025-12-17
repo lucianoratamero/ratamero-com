@@ -3,10 +3,7 @@ import { promises as fs } from 'fs';
 import { homedir } from 'os';
 import path from 'path';
 
-const SOURCE_DIR = path.join(
-	homedir(),
-	'Library/Mobile Documents/iCloud~md~obsidian/Documents/root/blog'
-);
+const SOURCE_DIR = path.join(homedir(), 'Drive/Obsidian/root/blog');
 const DEST_DIR = path.join(
 	path.dirname(new URL(import.meta.url).pathname),
 	'src/routes/(base)/blog'
