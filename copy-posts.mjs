@@ -3,7 +3,9 @@ import { promises as fs } from 'fs';
 import { homedir } from 'os';
 import path from 'path';
 
-const SOURCE_DIR = path.join(homedir(), 'Drive/Obsidian/root/blog');
+const SOURCE_DIR = process.env.BLOG_SOURCE_DIR
+	? path.resolve(process.env.BLOG_SOURCE_DIR)
+	: path.join(homedir(), 'Drive/Obsidian/root/blog');
 const DEST_DIR = path.join(
 	path.dirname(new URL(import.meta.url).pathname),
 	'src/routes/(base)/blog'
