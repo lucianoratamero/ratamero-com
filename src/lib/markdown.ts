@@ -21,7 +21,7 @@ let parser = unified().use(parse).use(gfm).use(frontmatter, ['yaml']);
 
 let runner = unified()
 	.use(remarkToc, {
-		heading: 'Table of Contents|Resumo|toc',
+		heading: 'Table of Contents|Resumo|toc|summary',
 		tight: true
 	})
 	.use(remark2rehype)

@@ -25,7 +25,7 @@ const mdsvexConfig = {
 		[
 			remarkToc,
 			{
-				heading: 'Table of Contents|Resumo|toc',
+				heading: 'Table of Contents|Resumo|toc|summary',
 				tight: true
 			}
 		]
