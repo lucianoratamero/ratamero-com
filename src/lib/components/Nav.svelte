@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { REPO_URL } from '$lib/siteConfig';
+	import { debounce } from 'lodash-es';
 	import Button from './Button.svelte';
 	import MobileMenu from './MobileMenu.svelte';
 	import NavLink from './NavLink.svelte';
@@ -32,29 +33,32 @@
 		}
 	}
 
-	function handleGeocitiesWarningDialog(e: MouseEvent) {
+	const handleGeocitiesWarningDialog = debounce((e: Event) => {
 		e.preventDefault();
-		showGeocitiesWarningDialog = !showGeocitiesWarningDialog;
-	}
+		showGeocitiesWarningDialog = true;
+	});
 
-	function handleThemeMouseDown(e: MouseEvent) {
+	const handleThemeMouseDown = debounce((e: Event) => {
+		e.preventDefault();
 		timer = setTimeout(() => handleGeocitiesWarningDialog(e), 1000);
-	}
+	});
 
-	function handleThemeMouseUp() {
+	const handleThemeMouseUp = debounce((e: Event) => {
+		e.preventDefault();
 		clearTimeout(timer);
 		if (!showGeocitiesWarningDialog) {
 			toggleDarkMode();
 		}
-	}
+	});
 
-	function setGeocities(value) {
-		showGeocitiesWarningDialog = false;
+	function setGeocities(value: boolean) {
 		isGeocities = value;
 
 		if (typeof localStorage !== 'undefined') {
 			localStorage.geocities = value;
 		}
+
+		showGeocitiesWarningDialog = false;
 	}
 
 	$effect(() => {
@@ -71,8 +75,8 @@
 
 <nav
 	class="relative mx-auto flex w-full max-w-3xl items-center justify-between border-zinc-200
-	bg-opacity-60 pt-8 px-4 mb-8 text-zinc-900 dark:border-zinc-700
-	dark:text-zinc-100 sm:mb-16 sm:px-6"
+	bg-opacity-60 pt-8 px-4 text-zinc-900 dark:border-zinc-700
+	dark:text-zinc-100 pb-8 sm:px-6"
 >
 	<a href="#skip" class="skip-nav text-black dark:text-white">Skip to content</a>
 	<MobileMenu />
@@ -146,6 +150,16 @@
 			transition-all hover:ring-2 dark:bg-cyan-800"
 			onmousedown={handleThemeMouseDown}
 			onmouseup={handleThemeMouseUp}
+			onkeydown={(e) => {
+				if (e.key === 'Enter') {
+					handleThemeMouseDown(e);
+				}
+			}}
+			onkeyup={(e) => {
+				if (e.key === 'Enter') {
+					handleThemeMouseUp(e);
+				}
+			}}
 		>
 			{#if isDark}
 				<svg

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { OutClick } from 'svelte-outclick';
+
 	let isOpen = $state(false);
 	let isMenuRendered = $state();
 
@@ -15,102 +17,104 @@
 	});
 </script>
 
-<div class="ml-[-0.60rem] md:hidden">
-	<button
-		class="burger visible cursor-pointer"
-		aria-label="Toggle menu"
-		type="button"
-		onclick={() => (isOpen = !isOpen)}
-	>
-		{#if !isOpen}
-			<svg
-				class="absolute h-6 w-6 text-zinc-900 dark:text-zinc-100"
-				width="20"
-				height="20"
-				viewBox="0 0 20 20"
-				fill="none"
-			>
-				<path
-					d="M2.5 7.5H17.5"
-					stroke="currentColor"
-					stroke-width="1.5"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				/>
-				<path
-					d="M2.5 12.5H17.5"
-					stroke="currentColor"
-					stroke-width="1.5"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				/>
-			</svg>
-		{:else}
-			<svg
-				class="h-5 w-5 absolute text-zinc-900 dark:text-zinc-100"
-				viewBox="0 0 24 24"
-				width="24"
-				height="24"
-				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				fill="none"
-				shape-rendering="geometricPrecision"
-				data-hide="true"
-			>
-				<path d="M18 6L6 18" />
-				<path d="M6 6l12 12" />
-			</svg>
-		{/if}
-	</button>
-	{#if isOpen}
-		<ul
-			class="menu absolute flex flex-col text-2xl px-4 bg-gradient-to-br from-white to-zinc-100 dark:bg-gradient-to-br dark:from-zinc-800 dark:to-zinc-900"
-			class:menuRendered={isMenuRendered}
+<OutClick onOutClick={() => (isOpen = false)}>
+	<div class="ml-[-0.60rem] md:hidden">
+		<button
+			class="burger visible cursor-pointer"
+			aria-label="Toggle menu"
+			type="button"
+			onclick={() => (isOpen = !isOpen)}
 		>
-			<li
-				class="border-b border-zinc-300 font-semibold text-zinc-900 dark:border-zinc-700 dark:text-zinc-100"
-				style="transition-delay: 150ms;"
-			>
-				<a
-					class="flex w-auto pb-4"
-					data-sveltekit-prefetch
-					onclick={() => setTimeout(() => (isOpen = false), 300)}
-					href="/"
+			{#if !isOpen}
+				<svg
+					class="absolute h-6 w-6 text-zinc-900 dark:text-zinc-100"
+					width="20"
+					height="20"
+					viewBox="0 0 20 20"
+					fill="none"
 				>
-					home
-				</a>
-			</li>
-			<li
-				class="border-b border-zinc-300 font-semibold text-zinc-900 dark:border-zinc-700 dark:text-zinc-100"
-				style="transition-delay: 250ms;"
-			>
-				<a
-					class="flex w-auto pb-4"
-					data-sveltekit-prefetch
-					onclick={() => setTimeout(() => (isOpen = false), 300)}
-					href="/blog"
+					<path
+						d="M2.5 7.5H17.5"
+						stroke="currentColor"
+						stroke-width="1.5"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					/>
+					<path
+						d="M2.5 12.5H17.5"
+						stroke="currentColor"
+						stroke-width="1.5"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					/>
+				</svg>
+			{:else}
+				<svg
+					class="h-5 w-5 absolute text-zinc-900 dark:text-zinc-100"
+					viewBox="0 0 24 24"
+					width="24"
+					height="24"
+					stroke="currentColor"
+					stroke-width="1.5"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					fill="none"
+					shape-rendering="geometricPrecision"
+					data-hide="true"
 				>
-					blog
-				</a>
-			</li>
-			<li
-				class="border-b border-zinc-300 font-semibold text-zinc-900 dark:border-zinc-700 dark:text-zinc-100"
-				style="transition-delay: 350ms;"
+					<path d="M18 6L6 18" />
+					<path d="M6 6l12 12" />
+				</svg>
+			{/if}
+		</button>
+		{#if isOpen}
+			<ul
+				class="menu absolute flex flex-col text-2xl px-4 bg-cyan-100 dark:bg-cyan-900 shadow-xl"
+				class:menuRendered={isMenuRendered}
 			>
-				<a
-					class="flex w-auto pb-4"
-					data-sveltekit-prefetch
-					onclick={() => setTimeout(() => (isOpen = false), 300)}
-					href="/about"
+				<li
+					class="border-b border-zinc-300 font-semibold text-zinc-900 dark:border-zinc-700 dark:text-zinc-100"
+					style="transition-delay: 150ms;"
 				>
-					about
-				</a>
-			</li>
-		</ul>
-	{/if}
-</div>
+					<a
+						class="flex w-auto pb-4"
+						data-sveltekit-prefetch
+						onclick={() => setTimeout(() => (isOpen = false), 300)}
+						href="/"
+					>
+						home
+					</a>
+				</li>
+				<li
+					class="border-b border-zinc-300 font-semibold text-zinc-900 dark:border-zinc-700 dark:text-zinc-100"
+					style="transition-delay: 250ms;"
+				>
+					<a
+						class="flex w-auto pb-4"
+						data-sveltekit-prefetch
+						onclick={() => setTimeout(() => (isOpen = false), 300)}
+						href="/blog"
+					>
+						blog
+					</a>
+				</li>
+				<li
+					class="border-b border-zinc-300 font-semibold text-zinc-900 dark:border-zinc-700 dark:text-zinc-100"
+					style="transition-delay: 350ms;"
+				>
+					<a
+						class="flex w-auto pb-4"
+						data-sveltekit-prefetch
+						onclick={() => setTimeout(() => (isOpen = false), 300)}
+						href="/about"
+					>
+						about
+					</a>
+				</li>
+			</ul>
+		{/if}
+	</div>
+</OutClick>
 
 <style lang="postcss">
 	@reference '../../tailwind.css';
@@ -136,9 +140,9 @@
 
 	.menu {
 		margin: 0;
+		top: 6.75rem;
 		padding-top: 24px;
 		width: 100%;
-		height: 100vh;
 		z-index: 1000;
 		opacity: 0;
 		left: 0;
