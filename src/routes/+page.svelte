@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import BaseLayout from '$lib/BaseLayout.svelte';
 	import FeatureCard from '$lib/components/FeatureCard.svelte';
 	import {
@@ -11,12 +12,6 @@
 	import type { PageData } from './$types';
 
 	let props: { data: PageData } = $props();
-
-	const birthday = new Date('1989-06-15');
-	const month_diff = Date.now() - birthday.getTime();
-	const age_dt = new Date(month_diff);
-	const year = age_dt.getUTCFullYear();
-	const age = Math.abs(year - 1970);
 </script>
 
 <svelte:head>
@@ -46,7 +41,7 @@
 			<div class="flex flex-col text-xl font-medium w-full max-w-3xl m-auto py-8 px-6">
 				<div class="animate-slide-up animation-delay-500 opacity-0 mb-6">
 					<h1
-						class="fancy-text text-6xl font-bold -ml-[0.2rem] md:text-[8rem] inline-block leading-none"
+						class="fancy-text text-6xl font-bold ml-[-0.2rem] md:text-[8rem] inline-block leading-none"
 					>
 						hi :]
 					</h1>
@@ -76,7 +71,7 @@
 				Featured Posts
 			</h3>
 			<div class="flex flex-col gap-6 md:flex-row">
-				{#each props.data.items as item, i}
+				{#each props.data.items as item, i (item.slug)}
 					{#if i < 3}
 						<FeatureCard title={item.title} href={`/blog/${item.slug}`} stringData={item.date} />
 					{/if}
@@ -84,7 +79,7 @@
 			</div>
 			<a
 				class="mt-8 flex h-6 rounded-lg leading-7 text-zinc-800 transition-all dark:text-zinc-200 dark:hover:text-zinc-100"
-				href="/blog"
+				href={resolve('/blog', {})}
 				>See latest posts
 				<svg
 					xmlns="http://www.w3.org/2000/svg"

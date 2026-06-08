@@ -3,11 +3,12 @@
 </script>
 
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { navigating } from '$app/state';
-	import Nav from '$lib/components/Nav.svelte';
 	import { Circle3 } from 'svelte-loading-spinners';
 	import { fade } from 'svelte/transition';
 
+	import Nav from '$lib/components/Nav.svelte';
 	import highlightSvelte from '$lib/highlightSvelte';
 	import hljs from 'highlight.js/lib/core';
 	import bash from 'highlight.js/lib/languages/bash';
@@ -33,7 +34,7 @@
 
 	let { children, noMargin }: Props = $props();
 
-	let timer = null;
+	let timer: ReturnType<typeof setTimeout> | null = null;
 	let navigationIsDelayed = $state(false);
 
 	$effect(() => {
@@ -78,7 +79,7 @@
 	<Nav />
 </div>
 <main class={['flex flex-col grow justify-between', { 'px-4 sm:px-6': !noMargin }]}>
-	{@render children()}
+	{@render children?.()}
 </main>
 
 <footer class="mx-auto my-8 flex w-full max-w-3xl px-6 flex-col items-start justify-center">
@@ -87,13 +88,13 @@
 		<div class="flex flex-col space-y-4">
 			<a
 				class="text-cyan-900 hover:text-cyan-800 dark:text-zinc-200 transition dark:hover:text-zinc-100"
-				href="/">Home</a
+				href={resolve('/', {})}>Home</a
 			>
 			<a
 				class="text-cyan-900 hover:text-cyan-800 dark:text-zinc-200 transition dark:hover:text-zinc-100"
-				href="/about">About me</a
+				href={resolve('/about', {})}>About me</a
 			>
-			<span>
+			<span class="text-cyan-900 dark:text-white">
 				<a
 					class="text-cyan-900 hover:text-cyan-800 dark:text-zinc-200 transition dark:hover:text-zinc-100"
 					href="/feed.xml"
@@ -123,7 +124,7 @@
 			<a
 				class="text-cyan-900 hover:text-cyan-800 dark:text-zinc-200 transition dark:hover:text-zinc-100"
 				target="_blank"
-				rel="noopener noreferrer"
+				rel="noopener noreferrer external"
 				href={REPO_URL}
 			>
 				GitHub
@@ -131,7 +132,7 @@
 			<a
 				class="text-cyan-900 hover:text-cyan-800 dark:text-zinc-200 transition dark:hover:text-zinc-100"
 				target="_blank"
-				rel="noopener noreferrer"
+				rel="noopener noreferrer external"
 				href={MY_YOUTUBE}
 			>
 				YouTube

@@ -1,7 +1,7 @@
 <svelte:options customElement="counter-buttons" />
 
 <script lang="ts">
-	function dispatch(type) {
+	function dispatch(type: string) {
 		$host().dispatchEvent(new CustomEvent(type));
 	}
 

@@ -4,7 +4,7 @@
 	let count = $state(0);
 
 	const reset = () => {
-		document.querySelector('counter-buttons').dispatchEvent(
+		document.querySelector('counter-buttons')?.dispatchEvent(
 			new CustomEvent('reset', {
 				composed: true
 			})

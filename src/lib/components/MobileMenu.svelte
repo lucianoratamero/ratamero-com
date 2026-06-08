@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { OutClick } from 'svelte-outclick';
 
 	let isOpen = $state(false);
@@ -80,7 +81,7 @@
 						class="flex w-auto pb-4"
 						data-sveltekit-prefetch
 						onclick={() => setTimeout(() => (isOpen = false), 300)}
-						href="/"
+						href={resolve('/', {})}
 					>
 						home
 					</a>
@@ -93,7 +94,7 @@
 						class="flex w-auto pb-4"
 						data-sveltekit-prefetch
 						onclick={() => setTimeout(() => (isOpen = false), 300)}
-						href="/blog"
+						href={resolve('/blog', {})}
 					>
 						blog
 					</a>
@@ -106,7 +107,7 @@
 						class="flex w-auto pb-4"
 						data-sveltekit-prefetch
 						onclick={() => setTimeout(() => (isOpen = false), 300)}
-						href="/about"
+						href={resolve('/about', {})}
 					>
 						about
 					</a>

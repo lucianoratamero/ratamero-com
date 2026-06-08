@@ -54,11 +54,11 @@
 		</p>
 	</div>
 	<div
-		class="my-2 flex h-1 bg-gradient-to-r from-cyan-400 via-sky-500 to-pink-500 sm:mx-0 w-full"
+		class="my-2 flex h-1 bg-linear-to-r from-cyan-400 via-sky-500 to-pink-500 sm:mx-0 w-full"
 	></div>
 
 	<div class="prose mt-12 w-full max-w-none dark:prose-invert 2xl:prose-xl">
-		{@render children()}
+		{@render children?.()}
 	</div>
 
 	<Comments />

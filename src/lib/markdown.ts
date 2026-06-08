@@ -1,5 +1,6 @@
 /* eslint-disable */
 import highlightSvelte from '$lib/highlightSvelte';
+import { common } from 'lowlight';
 import dayjs from 'dayjs';
 import yaml from 'js-yaml';
 import _ from 'lodash';
@@ -25,21 +26,23 @@ let runner = unified()
 		tight: true
 	})
 	.use(remark2rehype)
-	.use(highlight, { aliases: { markdown: 'ad-info' }, languages: { svelte: highlightSvelte } })
+	.use(highlight, {
+		aliases: { markdown: 'ad-info' },
+		languages: { ...common, svelte: highlightSvelte }
+	})
 	.use(rehypeSlug)
 	.use(rehypeAutolinkHeadings, {
 		behavior: 'wrap'
 	})
 	.use(rehypeStringify);
 
-export function process(filename) {
+export function process(filename: string) {
 	let tree = parser.parse(readSync(filename));
 	let metadata = null;
 	if (tree.children.length > 0 && tree.children[0].type == 'yaml') {
-		metadata = yaml.load(tree.children[0].value);
+		metadata = yaml.load(tree.children[0].value) as Record<string, unknown>;
 		tree.children = tree.children.slice(1, tree.children.length);
-		metadata.date.setUTCHours(23, 59, 59, 999);
-		metadata.date = dayjs(metadata.date).format('YYYY-MM-DD');
+		metadata.date = dayjs(metadata.date as string).format('YYYY-MM-DD');
 	}
 	let content = runner.stringify(runner.runSync(tree));
 	if (!metadata) {
@@ -53,7 +56,7 @@ export function process(filename) {
 	return { metadata, content };
 }
 
-export async function processAll(processedPath = null): Promise<ContentItem[]> {
+export async function processAll(processedPath?: string | null): Promise<ContentItem[]> {
 	const files = fs
 		.readdirSync(processedPath || `src/routes/(base)/blog/`)
 		.filter((file) => !file.endsWith('.svelte') && !file.startsWith('+'));
@@ -70,10 +73,8 @@ export async function processAll(processedPath = null): Promise<ContentItem[]> {
 				return;
 			}
 		})
-		.filter((post) => Boolean(post))
-		.map((post) => {
-			return post && post.metadata;
-		});
+		.filter((post): post is ContentFromFile => Boolean(post))
+		.map((post) => post.metadata as unknown as ContentItem);
 
 	return _.sortBy(postsMetadata, ['date']).reverse();
 }
@@ -92,8 +93,8 @@ export async function processAllWithContent(prefix = 'blog'): Promise<ContentFro
 				return;
 			}
 		})
-		.filter((post) => Boolean(post));
+		.filter((post): post is ContentFromFile => Boolean(post));
 
-	const dateComparator = (post) => _.get(post, 'metadata.date');
+	const dateComparator = (post: ContentFromFile) => _.get(post, 'metadata.date');
 	return _.orderBy(posts, dateComparator, ['desc']);
 }

@@ -5,16 +5,17 @@
 		stringData: string;
 	};
 
+	import { resolve } from '$app/paths';
 	let { title = 'Untitled post', href = '#', stringData }: Props = $props();
 </script>
 
 <a
-	class="w-full transform rounded-xl bg-gradient-to-r from-cyan-400 via-sky-500 to-pink-500 p-1 transition-all hover:scale-[1.01] md:w-1/3 hover:no-underline"
-	{href}
+	class="w-full transform rounded-xl bg-linear-to-r from-cyan-400 via-sky-500 to-pink-500 p-1 transition-all hover:scale-[1.01] md:w-1/3 hover:no-underline"
+	href={resolve(href, {})}
 	data-sveltekit-prefetch
 >
 	<div
-		class="flex h-full flex-col justify-between rounded-lg p-4 bg-gradient-to-br from-cyan-50 to-pink-50 dark:bg-gradient-to-br dark:from-cyan-900 dark:via-cyan-950 dark:to-pink-950"
+		class="flex h-full flex-col justify-between rounded-lg p-4 bg-linear-to-br from-cyan-50 to-pink-50 dark:bg-linear-to-br dark:from-cyan-900 dark:via-cyan-950 dark:to-pink-950"
 	>
 		<div class="flex flex-col justify-between md:flex-row">
 			<h4

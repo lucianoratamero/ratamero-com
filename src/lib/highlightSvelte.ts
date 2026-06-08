@@ -1,4 +1,6 @@
-export default function hljsDefineSvelte(hljs) {
+import type { HLJSApi, Language } from 'highlight.js';
+
+export default function hljsDefineSvelte(hljs: HLJSApi): Language {
 	return {
 		subLanguage: 'xml',
 		contains: [

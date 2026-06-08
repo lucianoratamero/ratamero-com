@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { untrack } from 'svelte';
+
 	type Props = {
 		name: string;
 		onsave: (value: string) => void;
@@ -6,7 +8,7 @@
 
 	let { name, onsave }: Props = $props();
 
-	let local_name = $state(name);
+	let local_name = $state(untrack(() => name));
 </script>
 
 <div>

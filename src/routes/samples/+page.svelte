@@ -1,3 +1,7 @@
+<script lang="ts">
+	import { resolve } from '$app/paths';
+</script>
+
 <h1>Samples</h1>
 
 <p>These pages are used as references on videos or blog posts I've made over the years.</p>
@@ -9,11 +13,11 @@
 
 <ul>
 	<li>
-		<a href="/samples/svelte-5-alem-do-basico/3 - inspect-and-trace"
+		<a href={resolve('/samples/svelte-5-alem-do-basico/3 - inspect-and-trace', {})}
 			>$inspect and $inspect.trace()</a
 		>
 	</li>
-	<li><a href="/samples/svelte-5-alem-do-basico/4 - props">$props</a></li>
-	<li><a href="/samples/svelte-5-alem-do-basico/4.1 - context">context</a></li>
-	<li><a href="/samples/svelte-5-alem-do-basico/host">$host</a></li>
+	<li><a href={resolve('/samples/svelte-5-alem-do-basico/4 - props', {})}>$props</a></li>
+	<li><a href={resolve('/samples/svelte-5-alem-do-basico/4.1 - context', {})}>context</a></li>
+	<li><a href={resolve('/samples/svelte-5-alem-do-basico/host', {})}>$host</a></li>
 </ul>

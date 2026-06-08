@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { REPO_URL } from '$lib/siteConfig';
 	import { debounce } from 'lodash-es';
 	import Button from './Button.svelte';
@@ -6,7 +7,7 @@
 	import NavLink from './NavLink.svelte';
 
 	let showGeocitiesWarningDialog = $state(false);
-	let timer = $state(null);
+	let timer: ReturnType<typeof setTimeout> | null = $state(null);
 
 	let isGeocities = $state(false);
 	let isDark = $state(false);
@@ -45,7 +46,7 @@
 
 	const handleThemeMouseUp = debounce((e: Event) => {
 		e.preventDefault();
-		clearTimeout(timer);
+		if (timer) clearTimeout(timer);
 		if (!showGeocitiesWarningDialog) {
 			toggleDarkMode();
 		}
@@ -75,13 +76,13 @@
 
 <nav
 	class="relative mx-auto flex w-full max-w-3xl items-center justify-between border-zinc-200
-	bg-opacity-60 pt-8 px-4 text-zinc-900 dark:border-zinc-700
+	pt-8 px-4 text-zinc-900 dark:border-zinc-700
 	dark:text-zinc-100 pb-8 sm:px-6"
 >
 	<a href="#skip" class="skip-nav text-black dark:text-white">Skip to content</a>
 	<MobileMenu />
 	<span class="grow md:grow-0">
-		<a class="fancy-text text-4xl font-bold hover:no-underline" href="/">hi :]</a>
+		<a class="fancy-text text-4xl font-bold hover:no-underline" href={resolve('/', {})}>hi :]</a>
 	</span>
 	<ul class="flex items-center">
 		<li>
@@ -125,6 +126,7 @@
 		<a
 			class="rounded-lg text-zinc-700 hover:bg-cyan-200 dark:text-zinc-200
 			dark:hover:bg-cyan-800"
+			rel="external"
 			href={REPO_URL}
 			aria-label="GitHub source"
 		>

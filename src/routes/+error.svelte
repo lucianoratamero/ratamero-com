@@ -28,7 +28,7 @@
 	{:else}
 		<p class="font-mono">{message}</p>
 	{/if}
-	{#if dev && page.error.message}
+	{#if dev && page.error?.message}
 		<pre class="mono overflow-scroll bg-zinc-800 p-8">{page.error.message}</pre>
 	{/if}
 </section>

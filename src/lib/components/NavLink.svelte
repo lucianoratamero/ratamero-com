@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import type { Snippet } from 'svelte';
 
@@ -18,7 +19,7 @@
 
 <a
 	class={`${active_classes} transition-all mr-1 hover:no-underline hidden rounded-lg p-1 text-zinc-800 hover:bg-cyan-200 dark:text-zinc-200 dark:hover:bg-cyan-800 sm:px-3 sm:py-2 md:inline-block`}
-	href={props.href}
+	href={resolve(props.href, {})}
 >
 	<span class="capsize">{@render children_render()} </span>
 </a>

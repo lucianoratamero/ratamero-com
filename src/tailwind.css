@@ -175,39 +175,36 @@ https://github.com/burnworks/tailwindcss-animation-delay
 
 	/* https://seek-oss.github.io/capsize/ */
 	.capsize::before {
-		/* https://seek-oss.github.io/capsize/ */
-		.capsize::before {
-			content: '';
-			margin-bottom: -0.098em;
-			display: table;
-		}
+		content: '';
+		margin-bottom: -0.098em;
+		display: table;
+	}
 
-		.capsize::after {
-			content: '';
-			margin-top: -0.219em;
-			display: table;
-		}
+	.capsize::after {
+		content: '';
+		margin-top: -0.219em;
+		display: table;
 	}
 }
 
 @layer utilities {
 	hr {
-		@apply !border-1 border-dashed !w-full !border-cyan-800 dark:!border-cyan-200;
+		@apply border! border-dashed w-full! border-cyan-800! dark:border-cyan-200!;
 	}
 
 	.fancy-text {
-		@apply bg-gradient-to-r from-cyan-400 via-sky-500 to-pink-500 inline-block;
+		@apply bg-linear-to-r from-cyan-400 via-sky-500 to-pink-500 inline-block;
 		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
 
 	.prose h1 a,
-	h2 a,
-	h3 a,
-	h4 a,
-	h5 a,
-	h6 a {
+	.prose h2 a,
+	.prose h3 a,
+	.prose h4 a,
+	.prose h5 a,
+	.prose h6 a {
 		/* margin-left: 1rem; */
 		text-decoration: none !important;
 		@apply text-cyan-600 dark:text-cyan-400;
@@ -253,9 +250,6 @@ https://github.com/burnworks/tailwindcss-animation-delay
 	.prose code {
 		border-radius: 0.25rem;
 		padding: 0.15rem 0.3rem 0;
-		border-width: 1px;
-		border-style: solid;
-		border-color: #113652;
 	}
 
 	/* .prose a:hover {

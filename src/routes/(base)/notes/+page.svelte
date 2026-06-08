@@ -1,19 +1,20 @@
 <script lang="ts">
 	import IndexCard from '$lib/components/IndexCard.svelte';
 	import dayjs from 'dayjs';
+	import { untrack } from 'svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
-	let { items } = data;
+	let items = $derived(data.items);
 
-	let inputEl: HTMLInputElement = $state();
+	let inputEl: HTMLInputElement | undefined = $state();
 
-	function focusSearch(e) {
+	function focusSearch(e: KeyboardEvent) {
 		if (e.key === '?' && inputEl) inputEl.select();
 	}
 
-	let isTruncated = $state(items.length > 20);
-	let search: string = $state();
+	let isTruncated = $state(untrack(() => items.length > 20));
+	let search: string = $state('');
 	let list = $derived(
 		items
 			.filter((item) => {
@@ -83,7 +84,7 @@
 	{/if}
 	{#if list.length}
 		<ul id="skip" class="w-full">
-			{#each list as item}
+			{#each list as item (item.slug)}
 				<li class="mb-8 text-lg">
 					<IndexCard
 						href={`/notes/${item.slug}`}

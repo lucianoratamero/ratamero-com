@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
 	import ChildComponent from './ChildComponent.svelte';
 
 	let name = $state('world');
-	const onsave = (value) => {
+	const onsave = (value: string) => {
 		name = value;
 	};
 </script>
