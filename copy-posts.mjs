@@ -5,7 +5,7 @@ import path from 'path';
 
 const SOURCE_DIR = process.env.BLOG_SOURCE_DIR
 	? path.resolve(process.env.BLOG_SOURCE_DIR)
-	: path.join(homedir(), 'Drive/Obsidian/root/blog');
+	: path.join(homedir(), 'SynologyDrive/Drive/Obsidian/root/blog');
 const DEST_DIR = path.join(
 	path.dirname(new URL(import.meta.url).pathname),
 	'src/routes/(base)/blog'
@@ -161,10 +161,13 @@ async function copyPosts() {
 	}
 }
 
+let copyTimeout;
+
 if (process.argv.includes('--watch')) {
-	chokidar.watch(SOURCE_DIR).on('all', (event, path) => {
-		console.log(`${event}: ${path}`);
-		copyPosts();
+	chokidar.watch(SOURCE_DIR).on('all', (event, watchPath) => {
+		console.log(`${event}: ${watchPath}`);
+		clearTimeout(copyTimeout);
+		copyTimeout = setTimeout(copyPosts, 2000);
 	});
 } else {
 	copyPosts();
