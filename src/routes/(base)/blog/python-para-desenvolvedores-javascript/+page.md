@@ -26,15 +26,15 @@ para ambas as linguagens, declarar variáveis é simples.
 
 **javascript**
 
-  ```js
+```js
  var x = 3;
- ```
+```
 
 **python**
 
-  ```python
- x = 3
- ```
+```python
+x = 3
+```
 
 mais tarde vamos falar de tipos, que fazem toda a diferença entre as linguagens. só vamos deixar clara, por enquanto, uma grande diferença: **variáveis em python sempre pertencem ao contexto do seu bloco**.
 
@@ -44,28 +44,28 @@ python tende a sempre ser mais estrito do que javascript. em python, não seguir
 
 **blocos em javascript**
 
-  ```js
+```js
  function exampleFunction () {
    // isso é um bloco, com um contexto pras variáveis
    var a = 5;
  }
- ```
+```
 
 **blocos em python**
 
-  ```python
+```python
  def example_function():
      # isso também é, também com seu próprio escopo
      # que é definido pelo que tá no mesmo nível de indentação
      x = 5
      print(x)
-     ```
+```
 
 se a linha do `print(x)` tivesse mais um ou menos um espaço antes da chamada da função, o interpretador do python levantaria uma exceção `IndentationError`, porque a diferença de espaços criaria um bloco inválido.
 
 outro possível problema causado pelo mau uso de indentação em python é o de escopo.
 
-  ```python
+```python
  x = "fora"
  # no escopo de fora, x = "fora"
  def example_function():
@@ -75,7 +75,7 @@ outro possível problema causado pelo mau uso de indentação em python é o de 
      # retornaria "dentro"
  print(x)
  # retornaria "fora"
- ```
+```
 
 ### controle de fluxo
 
@@ -85,7 +85,7 @@ outro possível problema causado pelo mau uso de indentação em python é o de 
 
 **javascript**
 
-  ```js
+```js
  if (x > 1) {
      console.log('oi');
  } else if (!x > 1) {
@@ -97,7 +97,7 @@ outro possível problema causado pelo mau uso de indentação em python é o de 
 
 **python**
 
-  ```python
+```python
  if x > 1:
      print('oi')
  elif not x > 1:
@@ -111,7 +111,7 @@ outro possível problema causado pelo mau uso de indentação em python é o de 
 
 **javascript**
 
-  ```js
+```js
  while (x < 3){
    x++;
  }
@@ -119,7 +119,7 @@ outro possível problema causado pelo mau uso de indentação em python é o de 
 
 **python**
 
-  ```python
+```python
  while x < 3:
      x += 1
 ```
@@ -130,17 +130,17 @@ em python, ao iterar sobre uma lista, não precisamos declarar o índice ou resg
 
 **javascript**
 
-  ```js
+```js
  var lista = [1, 2, 3];
  for (var i=0; i < lista.length; i++){
    var item = lista[i];
    console.log(item); // 1; 2; 3
  }
- ```
+```
 
 **python**
 
-  ```python
+```python
  lista = [1, 2, 3]
  for item in lista: # o item da vez ficará na variável 'item'
      print(item) # 1; 2; 3
@@ -193,72 +193,72 @@ você pode fazer as mesmas operações em ambas as linguagens, como, por exemplo
 
 listas em python são bem parecidas com as de javascript, com alguns adereços a mais. elas podem conter uma mistura de tipos:
 
-  ```python
+```python
  [4, "2", [0, "zero"]]
- ```
+```
 
 há também uma sintaxe especial para pegar partes de uma lista:
 
-  ```python
+```python
  lista = [1, 2, 3, 4, 5]
  lista[0:2] # 1, 2, 3
  lista[3:] # 4, 5
  lista[2, -2] # 3, 4
  # se aceitam índices negativos, pegando do final da lista
- ```
+```
 
 e algumas funções e métodos úteis:
 
-  ```python
+```python
  len([1, 2, 3]) # 3
  [1, 2, 3].reverse() # [3, 2, 1]
  [1, 2].append(3) # [1, 2, 3], igual ao 'push' do js
- ```
+```
 
 para concatenar listas, é só somá-las:
 
-  ```python
+```python
  # [1, 2, 3, 4]
  [1, 2] + [3, 4]
- ```
+```
 
 pra fechar, temos em python o que chamam de `list comprehension`. é uma forma de criar listas dinamicamente.
 
-  ```python
+```python
  lista = [1, 2, 3, 4]
  maiores_que_2 = [numero for numero in lista if numero > 2]
  # maiores_que_2 é agora [3, 4]
- ```
+```
 
 ### strings
 
 strings em python são praticamente iguais às de javascript. você pode acessar cada caractere individualmente, mas só pode alterar o conteúdo ao reassinalar a variável.
 
-  ```python
+```python
  nome = 'Luciano'
  print(nome[0]) # L
  nome[0] = 'D' # TypeError
- ```
+```
 
 ### dicionários
 
 dicionários são listas associativas em python, muito parecidos com objetos em javascript. eles são declarados praticamente da mesma forma.
 
-  ```python
+```python
  pessoa = {
      'nome': 'Luciano',
      'idade': 27
  }
  print(pessoa['nome']) # Luciano
  print(pessoa['gênero']) # KeyError, gênero não foi declarado
- ```
+```
 
 já que em python nós preferimos levantar erros em vez de falhar silenciosamente, temos um método padrão dos dicionários para resgatar valores default no caso de eles não terem sido declarados:
 
-  ```python
+```python
  pessoa.get('gênero', 'não-binário')
  # não achamos a chave "gênero", retornamos 'não-binário'
- ```
+```
 
 ### None
 
@@ -270,7 +270,7 @@ detalhe: não há par para `undefined` em python, já que tentar acessar algo n�
 
 assim como em javascript, funções também são objetos em python. isso significa que você pode passar funções como argumentos/callbacks ou até assinalar propriedades pra funções.
 
-  ```python
+```python
  def func_tainha(a, other_func):
      print(a)
      other_func()
@@ -285,7 +285,7 @@ assim como em javascript, funções também são objetos em python. isso signifi
  func_tainha.vinho = 'sinuelo'
  print(func_tainha.vinho)
  # sinuelo
- ```
+```
 
 ## módulos
 
@@ -295,13 +295,13 @@ não quero falar sobre ES6 aqui, mas os módulos (pacotes) em python são bem pa
 
 ao contrário de ES6, em que você tem que declarar o que você tá exportando pro seu módulo, em python você sõ precisa criar um arquivo `.py` e suas punções/classes/oquefor estão prontas pra serem importadas. basta que, na mesma pasta do seu módulo, você coloque um arquivo `__init__.py` pra que o interpretador python reconheça o módulo
 
-  ```python
+```python
  # qualquercoisa/qualquercoisa.py
  def dizer_quelquercoisa():
    print('qualquercoisa')
-   ```
+```
 * * *
-  ```python
+```python
  # qualquercoisa/__init__.py
  # pode ser vazio mesmo
  ```
@@ -317,11 +317,11 @@ ao contrário de ES6, em que você tem que declarar o que você tá exportando p
  # importando apenas a função 'dizer_quelquercoisa'
  dizer_quelquercoisa()
  # 'qualquercoisa'
- ```
+```
 
 ah, e pra instalar pacotes disponibilizados pela comunidade, tipo `npm`, você usa o `pip`.
 
- ```python 
+```python 
 pip install django
 ```
 
@@ -355,7 +355,7 @@ em python, assim como ES6, há suporte a classes e herança entre objetos. isso 
 
 desse jeito, se inicializarmos um humano chamado Jorge e comemorarmos seu aniversário, teremos o seguinte:
 
-  ```python
+```python
  jorge = Animal('Jorge')
  jorge.idade
  # 1
@@ -366,13 +366,13 @@ desse jeito, se inicializarmos um humano chamado Jorge e comemorarmos seu aniver
  
  jorge.falar()
  # blablablawhiskassachê 
- ```
+```
 
 ### herança
 
 tendo como base nossa classe de animal, podemos, por exemplo, termos uma subclasse de animal chamada `Girafa`:
 
- ```python
+```python
  class Girafa(Animal):
      """
      ao passar Animal entre parênteses, herdamos tudo de Animal
@@ -383,7 +383,7 @@ tendo como base nossa classe de animal, podemos, por exemplo, termos uma subclas
      def __init__(self):
          self.idade = self.idade_inicial
          self.especie = 'girafa'
-   ```
+```
 
 assim, se inicializarmos uma girafa...
 
